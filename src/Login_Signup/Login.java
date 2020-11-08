@@ -46,8 +46,8 @@ public class Login extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(744, 510));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\Components\\book.png")); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 80, 80));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/book.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 70, 70));
 
         jLabel1.setBackground(new java.awt.Color(123, 14, 123));
         jLabel1.setOpaque(true);

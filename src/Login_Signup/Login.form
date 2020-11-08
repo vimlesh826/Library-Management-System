@@ -33,12 +33,12 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\vimle\Desktop\Components\book.png"/>
+          <Image iconType="3" name="/Login_Signup/book.png"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="60" y="150" width="80" height="80"/>
+          <AbsoluteConstraints x="60" y="160" width="70" height="70"/>
         </Constraint>
       </Constraints>
     </Component>
