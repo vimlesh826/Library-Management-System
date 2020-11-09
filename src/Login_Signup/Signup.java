@@ -27,21 +27,107 @@ public class Signup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        main_p = new javax.swing.JPanel();
+        first = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        second = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        main_p.setLayout(new java.awt.CardLayout());
+
+        jLabel1.setText("First");
+
+        javax.swing.GroupLayout firstLayout = new javax.swing.GroupLayout(first);
+        first.setLayout(firstLayout);
+        firstLayout.setHorizontalGroup(
+            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstLayout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(jLabel1)
+                .addContainerGap(263, Short.MAX_VALUE))
+        );
+        firstLayout.setVerticalGroup(
+            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(firstLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jLabel1)
+                .addContainerGap(237, Short.MAX_VALUE))
+        );
+
+        main_p.add(first, "card3");
+
+        jLabel2.setText("Second");
+
+        javax.swing.GroupLayout secondLayout = new javax.swing.GroupLayout(second);
+        second.setLayout(secondLayout);
+        secondLayout.setHorizontalGroup(
+            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(jLabel2)
+                .addContainerGap(247, Short.MAX_VALUE))
+        );
+        secondLayout.setVerticalGroup(
+            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(secondLayout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(jLabel2)
+                .addContainerGap(193, Short.MAX_VALUE))
+        );
+
+        main_p.add(second, "card2");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(main_p, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jButton2)
+                .addGap(41, 41, 41)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(main_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        main_p.add(first);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        main_p.add(second);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +165,12 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel first;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel main_p;
+    private javax.swing.JPanel second;
     // End of variables declaration//GEN-END:variables
 }

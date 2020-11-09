@@ -34,7 +34,10 @@ public class Login extends javax.swing.JFrame {
         L_Panel = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         L_background = new javax.swing.JLabel();
-        R_panel = new javax.swing.JPanel();
+        R_Panel = new javax.swing.JPanel();
+        Login = new javax.swing.JPanel();
+        or = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         head = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         Submit = new javax.swing.JButton();
@@ -44,6 +47,20 @@ public class Login extends javax.swing.JFrame {
         password_label = new javax.swing.JLabel();
         username_label = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
+        Register = new javax.swing.JPanel();
+        password_label2 = new javax.swing.JLabel();
+        password2 = new javax.swing.JPasswordField();
+        p_sep2 = new javax.swing.JSeparator();
+        jButton2 = new javax.swing.JButton();
+        head1 = new javax.swing.JLabel();
+        username1 = new javax.swing.JTextField();
+        Submit1 = new javax.swing.JButton();
+        u_sep1 = new javax.swing.JSeparator();
+        p_sep1 = new javax.swing.JSeparator();
+        password1 = new javax.swing.JPasswordField();
+        password_label1 = new javax.swing.JLabel();
+        username_label1 = new javax.swing.JLabel();
+        background1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Library Management System");
@@ -62,29 +79,47 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 400));
 
-        R_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        R_Panel.setLayout(new java.awt.CardLayout());
+
+        Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        or.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        or.setForeground(new java.awt.Color(123, 14, 123));
+        or.setText("or");
+        Login.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+
+        jButton1.setForeground(new java.awt.Color(123, 14, 123));
+        jButton1.setText("Register Now");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        Login.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 100, 30));
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setForeground(new java.awt.Color(123, 14, 123));
         head.setText("Login");
-        R_panel.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 50));
+        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 50));
 
         username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         username.setBorder(null);
-        R_panel.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 240, 40));
+        Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 240, 40));
 
         Submit.setBackground(new java.awt.Color(255, 255, 255));
         Submit.setForeground(new java.awt.Color(123, 14, 123));
         Submit.setText("Submit");
         Submit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
         Submit.setContentAreaFilled(false);
-        R_panel.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 80, 30));
+        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 100, 30));
 
         u_sep.setForeground(new java.awt.Color(0, 0, 0));
-        R_panel.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 240, 10));
+        Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 240, 10));
 
         p_sep.setForeground(new java.awt.Color(0, 0, 0));
-        R_panel.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 240, 10));
+        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 10));
 
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         password.setBorder(null);
@@ -93,22 +128,109 @@ public class Login extends javax.swing.JFrame {
                 passwordActionPerformed(evt);
             }
         });
-        R_panel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 240, 40));
+        Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, 40));
 
         password_label.setLabelFor(password);
         password_label.setText("Password");
-        R_panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 140, 30));
+        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 140, 30));
 
         username_label.setLabelFor(username);
         username_label.setText("Username");
-        R_panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 30));
+        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 30));
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setToolTipText("");
         background.setOpaque(true);
-        R_panel.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 400));
+        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 400));
 
-        getContentPane().add(R_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 280, 400));
+        R_Panel.add(Login, "card2");
+
+        Register.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        password_label2.setLabelFor(password);
+        password_label2.setText("Re-enter Password");
+        Register.add(password_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 140, 30));
+
+        password2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        password2.setBorder(null);
+        password2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password2ActionPerformed(evt);
+            }
+        });
+        Register.add(password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 240, 40));
+
+        p_sep2.setForeground(new java.awt.Color(0, 0, 0));
+        Register.add(p_sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 240, 10));
+
+        jButton2.setForeground(new java.awt.Color(123, 14, 123));
+        jButton2.setText("< Sign in");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        Register.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 70, 30));
+
+        head1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        head1.setForeground(new java.awt.Color(123, 14, 123));
+        head1.setText("Sign Up");
+        Register.add(head1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 40));
+
+        username1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        username1.setBorder(null);
+        username1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                username1ActionPerformed(evt);
+            }
+        });
+        Register.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 240, 40));
+
+        Submit1.setBackground(new java.awt.Color(255, 255, 255));
+        Submit1.setForeground(new java.awt.Color(123, 14, 123));
+        Submit1.setText("Submit");
+        Submit1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        Submit1.setContentAreaFilled(false);
+        Submit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Submit1ActionPerformed(evt);
+            }
+        });
+        Register.add(Submit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 100, 30));
+
+        u_sep1.setForeground(new java.awt.Color(0, 0, 0));
+        Register.add(u_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 240, 10));
+
+        p_sep1.setForeground(new java.awt.Color(0, 0, 0));
+        Register.add(p_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 240, 10));
+
+        password1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        password1.setBorder(null);
+        password1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password1ActionPerformed(evt);
+            }
+        });
+        Register.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 240, 40));
+
+        password_label1.setLabelFor(password);
+        password_label1.setText("Password");
+        Register.add(password_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 140, 30));
+
+        username_label1.setLabelFor(username);
+        username_label1.setText("Username");
+        Register.add(username_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 30));
+
+        background1.setBackground(new java.awt.Color(255, 255, 255));
+        background1.setToolTipText("");
+        background1.setOpaque(true);
+        Register.add(background1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 400));
+
+        R_Panel.add(Register, "card3");
+
+        getContentPane().add(R_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 280, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,6 +238,35 @@ public class Login extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.out.println("1");
+        R_Panel.removeAll();
+        R_Panel.add(Login);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void username1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_username1ActionPerformed
+
+    private void password2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password2ActionPerformed
+
+    private void Submit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Submit1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Submit1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println("1");
+        R_Panel.removeAll();
+        R_Panel.add(Register);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,16 +306,33 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel L_Panel;
     private javax.swing.JLabel L_background;
-    private javax.swing.JPanel R_panel;
+    private javax.swing.JPanel Login;
+    private javax.swing.JPanel R_Panel;
+    private javax.swing.JPanel Register;
     private javax.swing.JButton Submit;
+    private javax.swing.JButton Submit1;
     private javax.swing.JLabel background;
+    private javax.swing.JLabel background1;
     private javax.swing.JLabel head;
+    private javax.swing.JLabel head1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel or;
     private javax.swing.JSeparator p_sep;
+    private javax.swing.JSeparator p_sep1;
+    private javax.swing.JSeparator p_sep2;
     private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField password1;
+    private javax.swing.JPasswordField password2;
     private javax.swing.JLabel password_label;
+    private javax.swing.JLabel password_label1;
+    private javax.swing.JLabel password_label2;
     private javax.swing.JSeparator u_sep;
+    private javax.swing.JSeparator u_sep1;
     private javax.swing.JTextField username;
+    private javax.swing.JTextField username1;
     private javax.swing.JLabel username_label;
+    private javax.swing.JLabel username_label1;
     // End of variables declaration//GEN-END:variables
 }
