@@ -31,17 +31,14 @@ public class Signup extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         L_background = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
-        or = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         head = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
         Submit = new javax.swing.JButton();
-        u_sep = new javax.swing.JSeparator();
         p_sep = new javax.swing.JSeparator();
-        password = new javax.swing.JPasswordField();
         password_label = new javax.swing.JLabel();
         username_label = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
+        username_label3 = new javax.swing.JLabel();
+        p_sep1 = new javax.swing.JSeparator();
+        p_sep2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,39 +56,14 @@ public class Signup extends javax.swing.JFrame {
 
         Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        or.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        or.setForeground(new java.awt.Color(123, 14, 123));
-        or.setText("or");
-        Login.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
-
-        jButton3.setForeground(new java.awt.Color(123, 14, 123));
-        jButton3.setText("Register Now");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        Login.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
-
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setForeground(new java.awt.Color(123, 14, 123));
-        head.setText("Login");
+        head.setText("Sign Up");
         Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, 50));
-
-        username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        username.setBorder(null);
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
-            }
-        });
-        Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 240, 40));
 
         Submit.setBackground(new java.awt.Color(255, 255, 255));
         Submit.setForeground(new java.awt.Color(123, 14, 123));
-        Submit.setText("Submit");
+        Submit.setText("Sign Up");
         Submit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
         Submit.setContentAreaFilled(false);
         Submit.addActionListener(new java.awt.event.ActionListener() {
@@ -99,54 +71,34 @@ public class Signup extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
-        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, 30));
-
-        u_sep.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 240, 10));
+        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 100, 30));
 
         p_sep.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 240, 10));
+        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 240, 10));
 
-        password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        password.setBorder(null);
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 240, 40));
+        password_label.setText("Re-enter Password");
+        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 140, 30));
 
-        password_label.setText("Password");
-        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 30));
+        username_label.setText("Password");
+        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 130, 30));
 
-        username_label.setText("Username");
-        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 30));
+        username_label3.setText("Roll Number");
+        Login.add(username_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 30));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setToolTipText("");
-        background.setOpaque(true);
-        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 510));
+        p_sep1.setForeground(new java.awt.Color(0, 0, 0));
+        Login.add(p_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 240, 30));
+
+        p_sep2.setForeground(new java.awt.Color(0, 0, 0));
+        Login.add(p_sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 240, 10));
 
         getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
-
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SubmitActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,16 +140,13 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel L_background;
     private javax.swing.JPanel Login;
     private javax.swing.JButton Submit;
-    private javax.swing.JLabel background;
     private javax.swing.JLabel head;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel or;
     private javax.swing.JSeparator p_sep;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JSeparator p_sep1;
+    private javax.swing.JSeparator p_sep2;
     private javax.swing.JLabel password_label;
-    private javax.swing.JSeparator u_sep;
-    private javax.swing.JTextField username;
     private javax.swing.JLabel username_label;
+    private javax.swing.JLabel username_label3;
     // End of variables declaration//GEN-END:variables
 }
