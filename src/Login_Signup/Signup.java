@@ -27,107 +27,126 @@ public class Signup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        main_p = new javax.swing.JPanel();
-        first = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        second = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        L_Panel = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        L_background = new javax.swing.JLabel();
+        Login = new javax.swing.JPanel();
+        or = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        head = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        Submit = new javax.swing.JButton();
+        u_sep = new javax.swing.JSeparator();
+        p_sep = new javax.swing.JSeparator();
+        password = new javax.swing.JPasswordField();
+        password_label = new javax.swing.JLabel();
+        username_label = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        main_p.setLayout(new java.awt.CardLayout());
+        L_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("First");
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/book.png"))); // NOI18N
+        L_Panel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 70, 70));
 
-        javax.swing.GroupLayout firstLayout = new javax.swing.GroupLayout(first);
-        first.setLayout(firstLayout);
-        firstLayout.setHorizontalGroup(
-            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstLayout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(jLabel1)
-                .addContainerGap(263, Short.MAX_VALUE))
-        );
-        firstLayout.setVerticalGroup(
-            firstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstLayout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jLabel1)
-                .addContainerGap(237, Short.MAX_VALUE))
-        );
+        L_background.setBackground(new java.awt.Color(123, 14, 123));
+        L_background.setOpaque(true);
+        L_Panel.add(L_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
 
-        main_p.add(first, "card3");
+        getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
 
-        jLabel2.setText("Second");
+        Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout secondLayout = new javax.swing.GroupLayout(second);
-        second.setLayout(secondLayout);
-        secondLayout.setHorizontalGroup(
-            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondLayout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(jLabel2)
-                .addContainerGap(247, Short.MAX_VALUE))
-        );
-        secondLayout.setVerticalGroup(
-            secondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(secondLayout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jLabel2)
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
+        or.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        or.setForeground(new java.awt.Color(123, 14, 123));
+        or.setText("or");
+        Login.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
-        main_p.add(second, "card2");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setForeground(new java.awt.Color(123, 14, 123));
+        jButton3.setText("Register Now");
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
+        Login.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        head.setForeground(new java.awt.Color(123, 14, 123));
+        head.setText("Login");
+        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, 50));
+
+        username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        username.setBorder(null);
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
+        Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 240, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main_p, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jButton2)
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(main_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(35, 35, 35))
-        );
+        Submit.setBackground(new java.awt.Color(255, 255, 255));
+        Submit.setForeground(new java.awt.Color(123, 14, 123));
+        Submit.setText("Submit");
+        Submit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        Submit.setContentAreaFilled(false);
+        Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitActionPerformed(evt);
+            }
+        });
+        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, 30));
+
+        u_sep.setForeground(new java.awt.Color(0, 0, 0));
+        Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 240, 10));
+
+        p_sep.setForeground(new java.awt.Color(0, 0, 0));
+        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 240, 10));
+
+        password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        password.setBorder(null);
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 240, 40));
+
+        password_label.setText("Password");
+        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 30));
+
+        username_label.setText("Username");
+        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 30));
+
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setToolTipText("");
+        background.setOpaque(true);
+        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 510));
+
+        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        main_p.add(first);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        main_p.add(second);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SubmitActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,12 +184,20 @@ public class Signup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel first;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel main_p;
-    private javax.swing.JPanel second;
+    private javax.swing.JPanel L_Panel;
+    private javax.swing.JLabel L_background;
+    private javax.swing.JPanel Login;
+    private javax.swing.JButton Submit;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel head;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel or;
+    private javax.swing.JSeparator p_sep;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JLabel password_label;
+    private javax.swing.JSeparator u_sep;
+    private javax.swing.JTextField username;
+    private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
 }
