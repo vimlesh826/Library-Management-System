@@ -49,13 +49,13 @@ public class Signup extends javax.swing.JFrame {
         L_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/book.png"))); // NOI18N
-        L_Panel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 70, 70));
+        L_Panel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, 70));
 
         L_background.setBackground(new java.awt.Color(123, 14, 123));
         L_background.setOpaque(true);
-        L_Panel.add(L_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
+        L_Panel.add(L_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
 
-        getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
+        getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
 
         R_Panel.setBackground(new java.awt.Color(255, 255, 255));
         R_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,7 +117,7 @@ public class Signup extends javax.swing.JFrame {
         });
         R_Panel.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 240, 40));
 
-        getContentPane().add(R_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
+        getContentPane().add(R_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 390, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
