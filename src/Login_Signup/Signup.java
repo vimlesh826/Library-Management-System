@@ -30,7 +30,7 @@ public class Signup extends javax.swing.JFrame {
         L_Panel = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         L_background = new javax.swing.JLabel();
-        Login = new javax.swing.JPanel();
+        R_Panel = new javax.swing.JPanel();
         head = new javax.swing.JLabel();
         Submit = new javax.swing.JButton();
         p_sep = new javax.swing.JSeparator();
@@ -39,6 +39,9 @@ public class Signup extends javax.swing.JFrame {
         username_label3 = new javax.swing.JLabel();
         p_sep1 = new javax.swing.JSeparator();
         p_sep2 = new javax.swing.JSeparator();
+        username1 = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        password1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,12 +57,13 @@ public class Signup extends javax.swing.JFrame {
 
         getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
 
-        Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        R_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        R_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setForeground(new java.awt.Color(123, 14, 123));
         head.setText("Sign Up");
-        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, 50));
+        R_Panel.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 140, 50));
 
         Submit.setBackground(new java.awt.Color(255, 255, 255));
         Submit.setForeground(new java.awt.Color(123, 14, 123));
@@ -71,27 +75,49 @@ public class Signup extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
-        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 100, 30));
+        R_Panel.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 100, 30));
 
         p_sep.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 240, 10));
+        R_Panel.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 240, 10));
 
         password_label.setText("Re-enter Password");
-        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 140, 30));
+        R_Panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 140, 30));
 
         username_label.setText("Password");
-        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 130, 30));
+        R_Panel.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 130, 30));
 
-        username_label3.setText("Roll Number");
-        Login.add(username_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 30));
+        username_label3.setText("Roll Number/ Emloyee ID");
+        R_Panel.add(username_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 130, 30));
 
         p_sep1.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(p_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 240, 30));
+        R_Panel.add(p_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 240, 10));
 
         p_sep2.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(p_sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 240, 10));
+        R_Panel.add(p_sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 240, 10));
 
-        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
+        username1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        username1.setBorder(null);
+        R_Panel.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 240, 40));
+
+        password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        password.setBorder(null);
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        R_Panel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 240, 40));
+
+        password1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        password1.setBorder(null);
+        password1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password1ActionPerformed(evt);
+            }
+        });
+        R_Panel.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 240, 40));
+
+        getContentPane().add(R_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,6 +125,14 @@ public class Signup extends javax.swing.JFrame {
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SubmitActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,14 +172,17 @@ public class Signup extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel L_Panel;
     private javax.swing.JLabel L_background;
-    private javax.swing.JPanel Login;
+    private javax.swing.JPanel R_Panel;
     private javax.swing.JButton Submit;
     private javax.swing.JLabel head;
     private javax.swing.JLabel logo;
     private javax.swing.JSeparator p_sep;
     private javax.swing.JSeparator p_sep1;
     private javax.swing.JSeparator p_sep2;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField password1;
     private javax.swing.JLabel password_label;
+    private javax.swing.JTextField username1;
     private javax.swing.JLabel username_label;
     private javax.swing.JLabel username_label3;
     // End of variables declaration//GEN-END:variables
