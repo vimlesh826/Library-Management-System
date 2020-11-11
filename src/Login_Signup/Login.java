@@ -7,6 +7,10 @@ package Login_Signup;
 
 import java.awt.CardLayout;
 import java.awt.Image;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -33,14 +37,13 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         L_Panel = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
         L_background = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
         or = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        register_btn = new javax.swing.JButton();
         head = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
-        Submit = new javax.swing.JButton();
+        submit_btn = new javax.swing.JButton();
         u_sep = new javax.swing.JSeparator();
         p_sep = new javax.swing.JSeparator();
         password = new javax.swing.JPasswordField();
@@ -56,14 +59,12 @@ public class Login extends javax.swing.JFrame {
 
         L_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/book.png"))); // NOI18N
-        L_Panel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 70, 70));
-
         L_background.setBackground(new java.awt.Color(123, 14, 123));
+        L_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/lib.jpg"))); // NOI18N
         L_background.setOpaque(true);
-        L_Panel.add(L_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
+        L_Panel.add(L_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
 
-        getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 510));
+        getContentPane().add(L_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
 
         Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -72,16 +73,16 @@ public class Login extends javax.swing.JFrame {
         or.setText("or");
         Login.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
-        jButton1.setForeground(new java.awt.Color(123, 14, 123));
-        jButton1.setText("Register Now");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        register_btn.setForeground(new java.awt.Color(123, 14, 123));
+        register_btn.setText("Register Now");
+        register_btn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        register_btn.setContentAreaFilled(false);
+        register_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                register_btnActionPerformed(evt);
             }
         });
-        Login.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
+        Login.add(register_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setForeground(new java.awt.Color(123, 14, 123));
@@ -92,17 +93,17 @@ public class Login extends javax.swing.JFrame {
         username.setBorder(null);
         Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 240, 40));
 
-        Submit.setBackground(new java.awt.Color(255, 255, 255));
-        Submit.setForeground(new java.awt.Color(123, 14, 123));
-        Submit.setText("Submit");
-        Submit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
-        Submit.setContentAreaFilled(false);
-        Submit.addActionListener(new java.awt.event.ActionListener() {
+        submit_btn.setBackground(new java.awt.Color(255, 255, 255));
+        submit_btn.setForeground(new java.awt.Color(123, 14, 123));
+        submit_btn.setText("Submit");
+        submit_btn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        submit_btn.setContentAreaFilled(false);
+        submit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitActionPerformed(evt);
+                submit_btnActionPerformed(evt);
             }
         });
-        Login.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, 30));
+        Login.add(submit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, 30));
 
         u_sep.setForeground(new java.awt.Color(0, 0, 0));
         Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 240, 10));
@@ -130,9 +131,9 @@ public class Login extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setToolTipText("");
         background.setOpaque(true);
-        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 510));
+        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 500));
 
-        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 380, 510));
+        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 390, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,15 +142,20 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("1");
-        L_Panel.removeAll();
-        L_Panel.add(Register);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void register_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_btnActionPerformed
+        new Signup().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_register_btnActionPerformed
 
-    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SubmitActionPerformed
+    private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
+        try{  
+            Class.forName("com.mysql.jdbc.Driver");  
+            Connection con=DriverManager.getConnection(  
+            "jdbc:mysql://localhost:3306/project","root","0000");
+            Statement stmt=con.createStatement();  
+            
+            }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}  
+    }//GEN-LAST:event_submit_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,15 +196,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel L_Panel;
     private javax.swing.JLabel L_background;
     private javax.swing.JPanel Login;
-    private javax.swing.JButton Submit;
     private javax.swing.JLabel background;
     private javax.swing.JLabel head;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel logo;
     private javax.swing.JLabel or;
     private javax.swing.JSeparator p_sep;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel password_label;
+    private javax.swing.JButton register_btn;
+    private javax.swing.JButton submit_btn;
     private javax.swing.JSeparator u_sep;
     private javax.swing.JTextField username;
     private javax.swing.JLabel username_label;
