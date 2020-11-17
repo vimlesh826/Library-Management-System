@@ -6,13 +6,18 @@
 package Login_Signup;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -98,6 +103,14 @@ public class Login extends javax.swing.JFrame {
         submit_btn.setText("Submit");
         submit_btn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
         submit_btn.setContentAreaFilled(false);
+        submit_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                submit_btnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                submit_btnMouseReleased(evt);
+            }
+        });
         submit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit_btnActionPerformed(evt);
@@ -113,11 +126,6 @@ public class Login extends javax.swing.JFrame {
 
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         password.setBorder(null);
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
         Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 240, 40));
 
         password_label.setLabelFor(password);
@@ -130,7 +138,10 @@ public class Login extends javax.swing.JFrame {
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setToolTipText("");
+        background.setEnabled(false);
+        background.setFocusable(false);
         background.setOpaque(true);
+        background.setRequestFocusEnabled(false);
         Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 500));
 
         getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 390, 500));
@@ -138,23 +149,41 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
     private void register_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_btnActionPerformed
         new Signup().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_register_btnActionPerformed
 
+    private void submit_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btnMousePressed
+        submit_btn.setBackground(new java.awt.Color(123, 14, 123));
+        submit_btn.setForeground(Color.WHITE);
+        submit_btn.setOpaque(true);
+    }//GEN-LAST:event_submit_btnMousePressed
+
+    private void submit_btnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btnMouseReleased
+        submit_btn.setBackground(Color.WHITE);
+        submit_btn.setForeground(new java.awt.Color(123, 14, 123));
+    }//GEN-LAST:event_submit_btnMouseReleased
+
     private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
+        String user = username.getText();
+        char[] pass = password.getPassword();
         try{  
-            Class.forName("com.mysql.jdbc.Driver");  
+            Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/project","root","0000");
-            Statement stmt=con.createStatement();  
+            PreparedStatement log=con.prepareStatement("select * from login where username = ? && password = ?;");
+            log.setString(1, user);
+            log.setString(2, String.valueOf(pass));
+            ResultSet rs = log.executeQuery();
+            if(rs.next()){
+                System.out.println("Login Successfully");
+                dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(this, "Login Failed","Alert",JOptionPane.ERROR_MESSAGE);
             
-            }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}  
+            }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}
     }//GEN-LAST:event_submit_btnActionPerformed
 
     /**
@@ -190,6 +219,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
