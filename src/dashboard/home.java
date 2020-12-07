@@ -83,6 +83,7 @@ public class home extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -486,6 +487,9 @@ public class home extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\Backgnd1.jpg")); // NOI18N
         home_card.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 600));
 
+        jLabel10.setText("Book Dues:");
+        home_card.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+
         main_panel.add(home_card, "profile");
         home_card.getAccessibleContext().setAccessibleName("profile_p");
 
@@ -693,6 +697,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton issued_book;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
