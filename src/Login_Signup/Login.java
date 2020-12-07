@@ -44,7 +44,6 @@ public class Login extends javax.swing.JFrame {
         L_Panel = new javax.swing.JPanel();
         L_background = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
-        or = new javax.swing.JLabel();
         register_btn = new javax.swing.JButton();
         head = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
@@ -54,7 +53,7 @@ public class Login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         password_label = new javax.swing.JLabel();
         username_label = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Library Management System");
@@ -73,35 +72,33 @@ public class Login extends javax.swing.JFrame {
 
         Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        or.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        or.setForeground(new java.awt.Color(123, 14, 123));
-        or.setText("or");
-        Login.add(or, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
-
-        register_btn.setForeground(new java.awt.Color(123, 14, 123));
-        register_btn.setText("Register Now");
+        register_btn.setBackground(new java.awt.Color(0, 0, 0));
+        register_btn.setText("not yet registered? Register Now");
         register_btn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        register_btn.setBorderPainted(false);
         register_btn.setContentAreaFilled(false);
         register_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 register_btnActionPerformed(evt);
             }
         });
-        Login.add(register_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 100, 30));
+        Login.add(register_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 250, 30));
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        head.setForeground(new java.awt.Color(123, 14, 123));
         head.setText("Login");
-        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, 50));
+        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 140, 50));
 
+        username.setBackground(new java.awt.Color(255,255,255,0));
         username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         username.setBorder(null);
-        Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 240, 40));
+        username.setOpaque(false);
+        Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 240, 40));
 
         submit_btn.setBackground(new java.awt.Color(255, 255, 255));
-        submit_btn.setForeground(new java.awt.Color(123, 14, 123));
+        submit_btn.setForeground(new java.awt.Color(51, 51, 51));
         submit_btn.setText("Submit");
         submit_btn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(123, 14, 123), 1, true));
+        submit_btn.setBorderPainted(false);
         submit_btn.setContentAreaFilled(false);
         submit_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -116,35 +113,41 @@ public class Login extends javax.swing.JFrame {
                 submit_btnActionPerformed(evt);
             }
         });
-        Login.add(submit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, 30));
+        Login.add(submit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 130, 30));
 
+        u_sep.setBackground(new java.awt.Color(0, 0, 0));
         u_sep.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 240, 10));
+        u_sep.setPreferredSize(new java.awt.Dimension(0, 1));
+        Login.add(u_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 240, 10));
 
+        p_sep.setBackground(new java.awt.Color(0, 0, 0));
         p_sep.setForeground(new java.awt.Color(0, 0, 0));
-        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 240, 10));
+        Login.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 240, 10));
 
+        password.setBackground(new java.awt.Color(255,255,255,0));
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         password.setBorder(null);
-        Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 240, 40));
+        password.setOpaque(false);
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        Login.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 240, 40));
 
         password_label.setLabelFor(password);
         password_label.setText("Password");
-        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 30));
+        Login.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 140, 30));
 
+        username_label.setBackground(new java.awt.Color(0, 0, 0));
         username_label.setLabelFor(username);
         username_label.setText("Username");
-        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, 30));
+        Login.add(username_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 130, 30));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setToolTipText("");
-        background.setEnabled(false);
-        background.setFocusable(false);
-        background.setOpaque(true);
-        background.setRequestFocusEnabled(false);
-        Login.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 500));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/background.jpg"))); // NOI18N
+        Login.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
 
-        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 390, 500));
+        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 350, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,7 +180,7 @@ public class Login extends javax.swing.JFrame {
             log.setString(2, String.valueOf(pass));
             ResultSet rs = log.executeQuery();
             if(rs.next()){
-                System.out.println("Login Successfully");
+                new dashboard.home(user).setVisible(true);
                 dispose();
             }
             else
@@ -185,6 +188,10 @@ public class Login extends javax.swing.JFrame {
             
             }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}
     }//GEN-LAST:event_submit_btnActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,9 +233,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel L_Panel;
     private javax.swing.JLabel L_background;
     private javax.swing.JPanel Login;
-    private javax.swing.JLabel background;
     private javax.swing.JLabel head;
-    private javax.swing.JLabel or;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator p_sep;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel password_label;
