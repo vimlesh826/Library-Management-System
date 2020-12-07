@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,12 +45,9 @@ public class Signup extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         head = new javax.swing.JLabel();
         Submit = new javax.swing.JButton();
-        p_sep = new javax.swing.JSeparator();
         password_label = new javax.swing.JLabel();
         username_label = new javax.swing.JLabel();
         username_label3 = new javax.swing.JLabel();
-        p_sep1 = new javax.swing.JSeparator();
-        p_sep2 = new javax.swing.JSeparator();
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         password1 = new javax.swing.JPasswordField();
@@ -97,10 +95,6 @@ public class Signup extends javax.swing.JFrame {
         });
         R_Panel.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 110, 30));
 
-        p_sep.setBackground(new java.awt.Color(0, 0, 0));
-        p_sep.setForeground(new java.awt.Color(0, 0, 0));
-        R_Panel.add(p_sep, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 240, 10));
-
         password_label.setText("Re-enter Password");
         R_Panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 140, 30));
 
@@ -110,18 +104,10 @@ public class Signup extends javax.swing.JFrame {
         username_label3.setText("Roll Number/ Emloyee ID");
         R_Panel.add(username_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 250, 30));
 
-        p_sep1.setBackground(new java.awt.Color(0, 0, 0));
-        p_sep1.setForeground(new java.awt.Color(0, 0, 0));
-        R_Panel.add(p_sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 240, 10));
-
-        p_sep2.setBackground(new java.awt.Color(0, 0, 0));
-        p_sep2.setForeground(new java.awt.Color(0, 0, 0));
-        R_Panel.add(p_sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 240, 10));
-
         username.setBackground(new java.awt.Color(255,255,255,0));
         username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         username.setToolTipText("");
-        username.setBorder(null);
+        username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
         username.setOpaque(false);
         username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -132,13 +118,13 @@ public class Signup extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(255,255,255,0));
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        password.setBorder(null);
+        password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
         password.setOpaque(false);
         R_Panel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 240, 40));
 
         password1.setBackground(new java.awt.Color(255,255,255,0));
         password1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        password1.setBorder(null);
+        password1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
         password1.setOpaque(false);
         password1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -256,9 +242,6 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JSeparator p_sep;
-    private javax.swing.JSeparator p_sep1;
-    private javax.swing.JSeparator p_sep2;
     private javax.swing.JPasswordField password;
     private javax.swing.JPasswordField password1;
     private javax.swing.JLabel password_label;
