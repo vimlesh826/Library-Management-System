@@ -7,7 +7,15 @@ package dashboard;
 
 
 
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -24,11 +32,11 @@ public class home extends javax.swing.JFrame {
     public home(String username) {
         initComponents();
         name1.setText(username);
-        name2.setText(username);
+        //name2.setText(username);
     }
 
-    private home() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public home() {
+        initComponents();
     }
 
     /**
@@ -40,8 +48,6 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         side_menu = new javax.swing.JPanel();
         manage_books = new javax.swing.JButton();
         profile = new javax.swing.JButton();
@@ -52,26 +58,36 @@ public class home extends javax.swing.JFrame {
         about = new javax.swing.JButton();
         Home = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         icon2 = new javax.swing.JLabel();
         name1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        main_panel = new javax.swing.JPanel();
+        manage = new javax.swing.JPanel();
+        IssueBook = new javax.swing.JPanel();
+        IssuedBook = new javax.swing.JPanel();
+        ReturnBook = new javax.swing.JPanel();
+        about_p = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        SearchBook = new javax.swing.JPanel();
+        Profile = new javax.swing.JPanel();
+        home_card = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        name2 = new javax.swing.JLabel();
-        icon1 = new javax.swing.JLabel();
-
-        jPopupMenu1.setBackground(new java.awt.Color(255, 153, 51));
-
-        jMenuItem1.setText("jMenuItem1");
-        jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         side_menu.setBackground(new java.awt.Color(255, 255, 255));
@@ -101,6 +117,11 @@ public class home extends javax.swing.JFrame {
                 manage_booksFocusLost(evt);
             }
         });
+        manage_books.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manage_booksActionPerformed(evt);
+            }
+        });
         side_menu.add(manage_books, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 50));
 
         profile.setBackground(new java.awt.Color(255, 255, 255));
@@ -123,6 +144,11 @@ public class home extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 profileFocusLost(evt);
+            }
+        });
+        profile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileActionPerformed(evt);
             }
         });
         side_menu.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 200, 50));
@@ -149,6 +175,11 @@ public class home extends javax.swing.JFrame {
                 return_bookFocusLost(evt);
             }
         });
+        return_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                return_bookActionPerformed(evt);
+            }
+        });
         side_menu.add(return_book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 200, 50));
 
         search_book.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,6 +202,11 @@ public class home extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 search_bookFocusLost(evt);
+            }
+        });
+        search_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_bookActionPerformed(evt);
             }
         });
         side_menu.add(search_book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 50));
@@ -197,6 +233,11 @@ public class home extends javax.swing.JFrame {
                 issue_bookFocusLost(evt);
             }
         });
+        issue_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                issue_bookActionPerformed(evt);
+            }
+        });
         side_menu.add(issue_book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 50));
 
         issued_book.setBackground(new java.awt.Color(255, 255, 255));
@@ -221,6 +262,11 @@ public class home extends javax.swing.JFrame {
                 issued_bookFocusLost(evt);
             }
         });
+        issued_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                issued_bookActionPerformed(evt);
+            }
+        });
         side_menu.add(issued_book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 200, 50));
 
         about.setBackground(new java.awt.Color(255, 255, 255));
@@ -243,6 +289,11 @@ public class home extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 aboutFocusLost(evt);
+            }
+        });
+        about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutActionPerformed(evt);
             }
         });
         side_menu.add(about, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 200, 50));
@@ -277,122 +328,168 @@ public class home extends javax.swing.JFrame {
         side_menu.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 200, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 80));
 
         icon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/user_lx.png"))); // NOI18N
+        jPanel3.add(icon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 65, -1));
 
         name1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         name1.setText("Vimlesh Kumar");
+        jPanel3.add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 22, 97, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(name1)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        side_menu.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 80));
 
-        side_menu.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, -1));
+        getContentPane().add(side_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 640));
 
-        getContentPane().add(side_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 600));
+        main_panel.setBackground(new java.awt.Color(255, 255, 255));
+        main_panel.setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.CardLayout());
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout manageLayout = new javax.swing.GroupLayout(manage);
+        manage.setLayout(manageLayout);
+        manageLayout.setHorizontalGroup(
+            manageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        manageLayout.setVerticalGroup(
+            manageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel9, "home");
+        main_panel.add(manage, "card5");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IssueBookLayout = new javax.swing.GroupLayout(IssueBook);
+        IssueBook.setLayout(IssueBookLayout);
+        IssueBookLayout.setHorizontalGroup(
+            IssueBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IssueBookLayout.setVerticalGroup(
+            IssueBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, "profile");
-        jPanel7.getAccessibleContext().setAccessibleName("profile_p");
+        main_panel.add(IssueBook, "card4");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout IssuedBookLayout = new javax.swing.GroupLayout(IssuedBook);
+        IssuedBook.setLayout(IssuedBookLayout);
+        IssuedBookLayout.setHorizontalGroup(
+            IssuedBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        IssuedBookLayout.setVerticalGroup(
+            IssuedBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, "card5");
+        main_panel.add(IssuedBook, "card3");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ReturnBookLayout = new javax.swing.GroupLayout(ReturnBook);
+        ReturnBook.setLayout(ReturnBookLayout);
+        ReturnBookLayout.setHorizontalGroup(
+            ReturnBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ReturnBookLayout.setVerticalGroup(
+            ReturnBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel8, "card4");
+        main_panel.add(ReturnBook, "card2");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        about_p.setBackground(new java.awt.Color(255, 255, 255));
+        about_p.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 153, 0));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel2.setText("Library Management ");
+        about_p.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel3.setText("System");
+        about_p.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 120, 50));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Developed By:");
+        about_p.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+
+        jLabel5.setText("Vimlesh Kumar");
+        about_p.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
+
+        jLabel6.setText("Umesh Maharwaha");
+        about_p.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
+
+        jLabel7.setText("Sakshi Bassi");
+        about_p.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
+
+        jLabel8.setText("Navreet Kaur");
+        about_p.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Beta version");
+        about_p.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, 20));
+
+        main_panel.add(about_p, "about");
+
+        javax.swing.GroupLayout SearchBookLayout = new javax.swing.GroupLayout(SearchBook);
+        SearchBook.setLayout(SearchBookLayout);
+        SearchBookLayout.setHorizontalGroup(
+            SearchBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        SearchBookLayout.setVerticalGroup(
+            SearchBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel5, "card3");
+        main_panel.add(SearchBook, "card4");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
+        Profile.setLayout(ProfileLayout);
+        ProfileLayout.setHorizontalGroup(
+            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 890, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ProfileLayout.setVerticalGroup(
+            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, "card2");
+        main_panel.add(Profile, "card4");
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 890, 600));
+        home_card.setBackground(new java.awt.Color(255, 255, 255));
+        home_card.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel14.setText("Book Issued:");
+        home_card.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel15.setText("500");
+        home_card.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 90, 60));
+        home_card.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 150, 100));
+        home_card.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 150, 100));
+
+        jLabel13.setBackground(new java.awt.Color(255, 102, 255));
+        jLabel13.setForeground(new java.awt.Color(255, 102, 255));
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\Backgnd1.jpg")); // NOI18N
+        home_card.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 600));
+
+        main_panel.add(home_card, "profile");
+        home_card.getAccessibleContext().setAccessibleName("profile_p");
+
+        getContentPane().add(main_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 890, 600));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 153, 0)));
@@ -408,22 +505,16 @@ public class home extends javax.swing.JFrame {
         jLabel1.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 40));
 
-        name2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        name2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        name2.setText("Vimlesh Kumar");
-        jPanel2.add(name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 240, 40));
-
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/user.png"))); // NOI18N
-        icon1.setText("jLabel5");
-        jPanel2.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 40, 40));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 40));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 890, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     final Color theme = new Color(255,204,102);
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
-        jPopupMenu1.show(Home, 200, 50);
+        main_panel.removeAll();
+        main_panel.add(home_card);
+        main_panel.repaint();
+        main_panel.revalidate();
     }//GEN-LAST:event_HomeActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -493,6 +584,62 @@ public class home extends javax.swing.JFrame {
     private void search_bookFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_search_bookFocusGained
         search_book.setBackground(theme);
     }//GEN-LAST:event_search_bookFocusGained
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        main_panel.removeAll();
+        main_panel.add(Profile);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
+        main_panel.removeAll();
+        main_panel.add(about_p);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_aboutActionPerformed
+
+    private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
+        main_panel.removeAll();
+        main_panel.add(Profile);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_profileActionPerformed
+
+    private void manage_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_booksActionPerformed
+        main_panel.removeAll();
+        main_panel.add(manage);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_manage_booksActionPerformed
+
+    private void search_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_bookActionPerformed
+        main_panel.removeAll();
+        main_panel.add(SearchBook);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_search_bookActionPerformed
+
+    private void return_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_bookActionPerformed
+        main_panel.removeAll();
+        main_panel.add(ReturnBook);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_return_bookActionPerformed
+
+    private void issue_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issue_bookActionPerformed
+        main_panel.removeAll();
+        main_panel.add(IssueBook);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_issue_bookActionPerformed
+
+    private void issued_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issued_bookActionPerformed
+        main_panel.removeAll();
+        main_panel.add(IssuedBook);
+        main_panel.repaint();
+        main_panel.revalidate();
+    }//GEN-LAST:event_issued_bookActionPerformed
     
     
     /**
@@ -533,26 +680,38 @@ public class home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton Home;
+    private javax.swing.JPanel IssueBook;
+    private javax.swing.JPanel IssuedBook;
+    private javax.swing.JPanel Profile;
+    private javax.swing.JPanel ReturnBook;
+    private javax.swing.JPanel SearchBook;
     private javax.swing.JButton about;
-    private javax.swing.JLabel icon1;
+    private javax.swing.JPanel about_p;
+    private javax.swing.JPanel home_card;
     private javax.swing.JLabel icon2;
     private javax.swing.JButton issue_book;
     private javax.swing.JButton issued_book;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPanel main_panel;
+    private javax.swing.JPanel manage;
     private javax.swing.JButton manage_books;
     private javax.swing.JLabel name1;
-    private javax.swing.JLabel name2;
     private javax.swing.JButton profile;
     private javax.swing.JButton return_book;
     private javax.swing.JButton search_book;
