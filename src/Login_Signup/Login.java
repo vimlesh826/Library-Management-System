@@ -176,7 +176,7 @@ public class Login extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/project","root","0000");
-            PreparedStatement log=con.prepareStatement("select * from login where username = ? && password = ?;");
+            PreparedStatement log=con.prepareStatement("select username from login where username = ? && password = ?;");
             log.setString(1, user);
             log.setString(2, String.valueOf(pass));
             ResultSet rs = log.executeQuery();

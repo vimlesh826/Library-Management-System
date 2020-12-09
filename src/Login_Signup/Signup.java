@@ -163,7 +163,7 @@ public class Signup extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/project","root","0000");
-            PreparedStatement check=con.prepareStatement("select * from login where username = ?");
+            PreparedStatement check=con.prepareStatement("select username from login where username = ?");
             check.setString(1, user);
             PreparedStatement reg=con.prepareStatement("insert into login values(?,?)");
             reg.setString(1, user);
