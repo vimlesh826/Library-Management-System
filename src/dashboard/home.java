@@ -94,8 +94,9 @@ public class home extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         Profile = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -116,6 +117,7 @@ public class home extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
+        bckgrnd1 = new javax.swing.JLabel();
         manage = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         sbmt = new javax.swing.JButton();
@@ -181,6 +183,7 @@ public class home extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         clear = new javax.swing.JButton();
         done = new javax.swing.JButton();
+        jLabel41 = new javax.swing.JLabel();
         IssuedBook = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -487,17 +490,21 @@ public class home extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel15.setText("500");
-        home_card.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 60));
+        home_card.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 90, 60));
         home_card.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 150, 100));
         home_card.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 150, 100));
 
+        jLabel10.setText("Book Dues:");
+        home_card.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel36.setText("500");
+        home_card.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 60));
+
         jLabel13.setBackground(new java.awt.Color(255, 102, 255));
         jLabel13.setForeground(new java.awt.Color(255, 102, 255));
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\Backgnd1.jpg")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/Backgnd1.jpg"))); // NOI18N
         home_card.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 600));
-
-        jLabel10.setText("Book Dues:");
-        home_card.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
         main_panel.add(home_card, "profile");
         home_card.getAccessibleContext().setAccessibleName("profile_p");
@@ -548,7 +555,7 @@ public class home extends javax.swing.JFrame {
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Profile.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 220, -1));
+        Profile.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 220, -1));
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -557,7 +564,7 @@ public class home extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        Profile.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 220, -1));
+        Profile.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, -1));
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -566,7 +573,7 @@ public class home extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
-        Profile.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 220, -1));
+        Profile.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -575,7 +582,7 @@ public class home extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
-        Profile.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 220, -1));
+        Profile.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 220, -1));
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -616,6 +623,9 @@ public class home extends javax.swing.JFrame {
             }
         });
         Profile.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 220, -1));
+
+        bckgrnd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/boy.png"))); // NOI18N
+        Profile.add(bckgrnd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 210, 240));
 
         main_panel.add(Profile, "card4");
 
@@ -688,7 +698,7 @@ public class home extends javax.swing.JFrame {
         jLabel25.setText("Subject:");
         manage.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, 20));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/sexy1.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/backgnd.png"))); // NOI18N
         manage.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 90, -1, 510));
 
         edition.setBackground(new java.awt.Color(255, 255, 255, 0));
@@ -962,10 +972,8 @@ public class home extends javax.swing.JFrame {
         });
         ReturnBook.add(rtrn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 40));
 
-        bckgrnd.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\sexy1.png")); // NOI18N
-        ReturnBook.add(bckgrnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 520, 520));
-
-        jLabel33.setIcon(new javax.swing.ImageIcon("C:\\Users\\vimle\\Desktop\\rupee.png")); // NOI18N
+        bckgrnd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/reading.png"))); // NOI18N
+        ReturnBook.add(bckgrnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 250, 260));
         ReturnBook.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 20, 30));
 
         main_panel.add(ReturnBook, "card2");
@@ -1058,7 +1066,7 @@ public class home extends javax.swing.JFrame {
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel42.setText(" Issue Book: ");
-        IssueBook.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        IssueBook.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 150, -1));
 
         clear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         clear.setText("Clear");
@@ -1081,6 +1089,9 @@ public class home extends javax.swing.JFrame {
             }
         });
         IssueBook.add(done, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/desk.png"))); // NOI18N
+        IssueBook.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 260, 260));
 
         main_panel.add(IssueBook, "card4");
 
@@ -1294,6 +1305,16 @@ public class home extends javax.swing.JFrame {
         main_panel.add(Profile);
         main_panel.repaint();
         main_panel.revalidate();
+        try {
+            Query = con.prepareStatement("select * from Employee where authority = ;");
+            Query.setString(1, "librarian");
+            ResultSet rs = Query.executeQuery();
+            DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
+            while(rs.next())
+                m.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }
     }//GEN-LAST:event_profileActionPerformed
 
     private void manage_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manage_booksActionPerformed
@@ -1599,10 +1620,6 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -1622,6 +1639,10 @@ public class home extends javax.swing.JFrame {
     private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
     
     
     /**
@@ -1674,6 +1695,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JRadioButton addBook;
     private javax.swing.JTextField authr;
     private javax.swing.JLabel bckgrnd;
+    private javax.swing.JLabel bckgrnd1;
     private javax.swing.JTextField bookID;
     private javax.swing.JTextField bookName;
     private javax.swing.JTextField borrowerID;
@@ -1728,11 +1750,13 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
