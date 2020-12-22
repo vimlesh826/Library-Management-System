@@ -20,6 +20,8 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -37,30 +39,53 @@ public class home extends javax.swing.JFrame {
      */
     Connection con;
     PreparedStatement Query;
+    String bkid, iss_id, rtbkid, rtiss_id, name;
+    final Color theme = new Color(255,204,102);
+    LocalDate d = LocalDate.now();
+    LocalDate iss_Date = d;
+    LocalDate ret_Date = d.plusMonths(1);
     
     public home(String username) {
         initComponents();
+        name = username;
         name1.setText(username);
         //name2.setText(username);
         getDBConnection();
-        
+        dashboardUpdate();
     }
 
     public home() {
         initComponents();
         getDBConnection();
+        dashboardUpdate();
     }
     
     private void getDBConnection(){
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/project","root","0000");
+            "jdbc:mysql://localhost:3306/Library_Management","root","0000");
             if(con.isValid(2))
                 status.setText("Online");
             else
                 status.setText("Offline");
+            
         }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}
+    }
+    
+    private void dashboardUpdate(){
+        try {
+            Query = con.prepareStatement("select count(*) AS total from issuedbooks;");
+            PreparedStatement Query1 = con.prepareStatement("select count(*) AS total from books;");
+            ResultSet rs1 = Query.executeQuery();
+            ResultSet rs2 = Query1.executeQuery();
+            if(rs1.next())
+                jLabel36.setText(String.valueOf(rs1.getInt("total")));
+            if(rs2.next())
+                jLabel47.setText(String.valueOf(rs2.getInt("total")));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }
     }
     
     /**
@@ -96,7 +121,10 @@ public class home extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         Profile = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -108,14 +136,14 @@ public class home extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
+        fullname = new javax.swing.JTextField();
+        userName = new javax.swing.JTextField();
+        authority = new javax.swing.JTextField();
+        ID = new javax.swing.JTextField();
+        mail = new javax.swing.JTextField();
+        phno = new javax.swing.JTextField();
+        np = new javax.swing.JTextField();
+        re_np = new javax.swing.JTextField();
         jTextField19 = new javax.swing.JTextField();
         bckgrnd1 = new javax.swing.JLabel();
         manage = new javax.swing.JPanel();
@@ -485,8 +513,8 @@ public class home extends javax.swing.JFrame {
         home_card.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel14.setText("Book Issued:");
-        home_card.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
+        jLabel14.setText("Total Books:");
+        home_card.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel15.setText("500");
@@ -501,10 +529,22 @@ public class home extends javax.swing.JFrame {
         jLabel36.setText("500");
         home_card.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, 60));
 
+        jLabel46.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel46.setText("Book Issued:");
+        home_card.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel47.setText("500");
+        home_card.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 90, 60));
+
         jLabel13.setBackground(new java.awt.Color(255, 102, 255));
         jLabel13.setForeground(new java.awt.Color(255, 102, 255));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/Backgnd1.jpg"))); // NOI18N
         home_card.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 600));
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel48.setText("Book Issued:");
+        home_card.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         main_panel.add(home_card, "profile");
         home_card.getAccessibleContext().setAccessibleName("profile_p");
@@ -553,76 +593,76 @@ public class home extends javax.swing.JFrame {
         jLabel59.setText("New Password");
         Profile.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Profile.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 220, -1));
+        fullname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fullname.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Profile.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 220, -1));
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        userName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        userName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                userNameActionPerformed(evt);
             }
         });
-        Profile.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, -1));
+        Profile.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, -1));
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        authority.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        authority.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        authority.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                authorityActionPerformed(evt);
             }
         });
-        Profile.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
+        Profile.add(authority, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        ID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ID.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                IDActionPerformed(evt);
             }
         });
-        Profile.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 220, -1));
+        Profile.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 220, -1));
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Profile.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 220, -1));
+        mail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Profile.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 220, -1));
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        phno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        phno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        phno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                phnoActionPerformed(evt);
             }
         });
-        Profile.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 220, -1));
+        Profile.add(phno, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 220, -1));
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        np.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        np.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        np.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                npActionPerformed(evt);
             }
         });
-        Profile.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 220, -1));
+        Profile.add(np, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 220, -1));
 
-        jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField18.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+        re_np.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        re_np.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        re_np.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+                re_npActionPerformed(evt);
             }
         });
-        Profile.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 220, -1));
+        Profile.add(re_np, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 220, -1));
 
         jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        jTextField19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField19ActionPerformed(evt);
             }
         });
-        Profile.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 220, -1));
+        Profile.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 220, 20));
 
         bckgrnd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/boy.png"))); // NOI18N
         Profile.add(bckgrnd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 210, 240));
@@ -853,7 +893,7 @@ public class home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Book ID", "Title", "Edition", "Author", "Publisher", "ISBN", "Subject", "Quantity", "Price"
+                "Book ID", "Title", "Author", "Publisher", "Edition", "ISBN", "Subject", "Quantity", "Price"
             }
         ) {
             Class[] types = new Class [] {
@@ -1205,17 +1245,13 @@ public class home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    String bkid, iss_id, rtbkid, rtiss_id;
-    final Color theme = new Color(255,204,102);
-    LocalDate d = LocalDate.now();
-    LocalDate iss_Date = d;
-    LocalDate ret_Date = d.plusMonths(1);
     
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         main_panel.removeAll();
         main_panel.add(home_card);
         main_panel.repaint();
         main_panel.revalidate();
+        dashboardUpdate();
     }//GEN-LAST:event_HomeActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1306,12 +1342,13 @@ public class home extends javax.swing.JFrame {
         main_panel.repaint();
         main_panel.revalidate();
         try {
-            Query = con.prepareStatement("select * from Employee where authority = ;");
-            Query.setString(1, "librarian");
+            Query = con.prepareStatement("select * from employee, users where employee.ID = users.ID and username = ?;");
+            Query.setString(1, name);
             ResultSet rs = Query.executeQuery();
-            DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
-            while(rs.next())
-                m.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+            if(rs.next()){
+                fullname.setText(rs.getString("Name"));
+            }
+            rs.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,ex);
         }
@@ -1354,9 +1391,13 @@ public class home extends javax.swing.JFrame {
         main_panel.repaint();
         main_panel.revalidate();
         try {
-            Query = con.prepareStatement("select * from issuedBooks;");
+            Query = con.prepareStatement("select * from IssuedBooks;");
             ResultSet rs = Query.executeQuery();
             DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
+            int count = m.getRowCount()-1;
+            while(count>=0){
+                m.removeRow(count--);
+            }
             while(rs.next())
                 m.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
         } catch (SQLException ex) {
@@ -1369,48 +1410,46 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_termActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String searchby = null;
-        switch(jComboBox1.getSelectedIndex()){
-            case 0: 
-                searchby = "bookID";
-                break;
-            case 1:
-                searchby = "Title";
-                break;
-            case 2:
-                searchby = "Edition";
-                break;
-            case 3:
-                searchby = "Author";
-                break;
-            case 4:
-                searchby = "Publisher";
-                break;
-            case 5:
-                searchby = "ISBN";
-                break;
-            case 6:
-                searchby = "Subject";
-                break;
-    }
-        String k = term.getText();
-        try {
-            Query = con.prepareStatement("select * from books where ? LIKE ?;");
-            Query.setString(1, searchby);
-            Query.setString(2,"%"+k+"%");
-            ResultSet rs = Query.executeQuery();
-            DefaultTableModel m = (DefaultTableModel) jTable2.getModel();
-            int count = m.getRowCount()-1;
-            while(count>=0){
-                m.removeRow(count--);
+        
+        try {                                         
+            
+            switch(jComboBox1.getSelectedIndex()){
+                case 0:
+                    Query = con.prepareStatement("select * from books where BookID LIKE ?;");
+                    break;
+                case 1:
+                    Query = con.prepareStatement("select * from books where Title LIKE ?;");
+                    break;
+                case 2:
+                    Query = con.prepareStatement("select * from books where Author LIKE ?;");
+                    break;
+                case 3:
+                    Query = con.prepareStatement("select * from books where Publisher LIKE ?;");
+                    break;
+                case 4:
+                    Query = con.prepareStatement("select * from books where Edition LIKE ?;");
+                    break;
+                case 5:
+                    Query = con.prepareStatement("select * from books where ISBN LIKE ?;");
+                    break;
+                case 6:
+                    Query = con.prepareStatement("select * from books where Subject LIKE ?;");
+                    break;
             }
-            if(rs.next()){
-                while(rs.next())
-                    m.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "no result found");
-            }
+            String k = term.getText();
+                        Query.setString(1,"%"+k+"%");
+                        System.out.print(Query);
+                        ResultSet rs = Query.executeQuery();
+                        DefaultTableModel m = (DefaultTableModel) jTable2.getModel();
+                        int count = m.getRowCount()-1;
+                        while(count>=0){
+                            m.removeRow(count--);
+                        }
+                            while(rs.next())
+                                m.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),
+                                    rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(9)});
+                        
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,ex);
         }
@@ -1430,9 +1469,13 @@ public class home extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         try {
-            Query = con.prepareStatement("select * from issuedBooks;");
+            Query = con.prepareStatement("select * from IssuedBooks;");
             ResultSet rs = Query.executeQuery();
-            DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel m = (DefaultTableModel) jTable2.getModel();
+            int count = m.getRowCount()-1;
+            while(count>=0){
+                m.removeRow(count--);
+            }
             while(rs.next())
                 m.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)});
         } catch (SQLException ex) {
@@ -1520,11 +1563,11 @@ public class home extends javax.swing.JFrame {
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
         bkid = bookID.getText();
         try {
-            Query = con.prepareStatement("select BookName from books where bookID = ?;");
+            Query = con.prepareStatement("select title from books where bookID = ?;");
             Query.setString(1, bkid);
             ResultSet rs = Query.executeQuery();
             if(rs.next())
-                bookName.setText(rs.getString("bookID"));
+                bookName.setText(rs.getString("title"));
             else
                 JOptionPane.showMessageDialog(this,"No Record Found for given BOOK_ID");
         } catch (SQLException ex) {
@@ -1550,16 +1593,28 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_c2ActionPerformed
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
+        /**
         try {
             con.setAutoCommit(false);
             Statement finalQuery = con.createStatement();
-            finalQuery.addBatch("Insert into issuedBooks values( "+iss_id+", "+bkid+" ,"+iss_Date+" ,"+ret_Date+" );");
-            finalQuery.addBatch("update books set quantity = quantity-1 where bookID = "+bkid+" ;");
-            int[] k = finalQuery.executeBatch();
-            if(k.length==2){
-                finalQuery.close();}
+            finalQuery.addBatch("Insert into issuedBooks values( "+bkid+", "+iss_id+" ,"+java.sql.Date.valueOf(iss_Date)+" ,"+java.sql.Date.valueOf(ret_Date)+" );");
+            finalQuery.addBatch("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
+            finalQuery.executeBatch();
             con.commit();
             con.setAutoCommit(true);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }*/
+        try {
+            Query = con.prepareStatement("Insert into issuedbooks values( ?, ? ,? ,? );");
+            PreparedStatement Query1 = con.prepareStatement("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
+            Query.setString(1, bkid);
+            Query.setString(2, iss_id);
+            Query.setDate(3, java.sql.Date.valueOf(iss_Date));
+            Query.setDate(4, java.sql.Date.valueOf(ret_Date));
+            Query.executeUpdate();
+            Query1.executeUpdate();
+            Query1.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,ex);
         }
@@ -1570,7 +1625,7 @@ public class home extends javax.swing.JFrame {
         rtiss_id = borrowerID.getText();
         long fine;
         try {
-            Query = con.prepareStatement("select * from issuedBooks where ID = ? and bookID = ?;");
+            Query = con.prepareStatement("select * from IssuedBooks where ID = ? and BookID = ?;");
             Query.setString(1, rtiss_id);
             Query.setString(2, rtbkid);
             ResultSet rs = Query.executeQuery();
@@ -1597,16 +1652,27 @@ public class home extends javax.swing.JFrame {
         try {
             con.setAutoCommit(false);
             Statement finalQuery = con.createStatement();
-            finalQuery.addBatch("Insert into issuedBooks values( "+iss_id+", "+bkid+" ,"+iss_Date+" ,"+ret_Date+" );");
-            finalQuery.addBatch("update books set quantity = quantity+1 where bookID = "+bkid+" ;");
-            int[] k = finalQuery.executeBatch();
-            if(k.length==2)
-                finalQuery.close();
+            finalQuery.addBatch("delete from issuedbooks where BookID = "+rtbkid+" AND ID = "+rtiss_id+" ;");
+            finalQuery.addBatch("update books set quantity = quantity+1 where BookID = "+bkid+" ;");
+            finalQuery.executeBatch();
             con.commit();
             con.setAutoCommit(true);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,ex);
         }
+        /**try {
+            Query = con.prepareStatement("Insert into issuedbooks values( ?, ? ,? ,? );");
+            PreparedStatement Query1 = con.prepareStatement("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
+            Query.setString(1, bkid);
+            Query.setString(2, iss_id);
+            Query.setDate(3, java.sql.Date.valueOf(iss_Date));
+            Query.setDate(4, java.sql.Date.valueOf(ret_Date));
+            Query.executeUpdate();
+            Query1.executeUpdate();
+            Query1.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }*/
     }//GEN-LAST:event_rtrnActionPerformed
 
     private void clrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clrActionPerformed
@@ -1616,33 +1682,33 @@ public class home extends javax.swing.JFrame {
         borrowerID.setText(" ");
     }//GEN-LAST:event_clrActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_userNameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_IDActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void phnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_phnoActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void npActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_npActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void re_npActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_re_npActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_re_npActionPerformed
 
     private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField19ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void authorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_authorityActionPerformed
     
     
     /**
@@ -1684,6 +1750,7 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BookID;
     javax.swing.JButton Home;
+    private javax.swing.JTextField ID;
     private javax.swing.JPanel IssueBook;
     private javax.swing.JPanel IssuedBook;
     private javax.swing.JPanel Pofile_Panel;
@@ -1693,6 +1760,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton about;
     private javax.swing.JPanel about_p;
     private javax.swing.JRadioButton addBook;
+    private javax.swing.JTextField authority;
     private javax.swing.JTextField authr;
     private javax.swing.JLabel bckgrnd;
     private javax.swing.JLabel bckgrnd1;
@@ -1708,6 +1776,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton done;
     private javax.swing.JTextField dueDate;
     private javax.swing.JTextField edition;
+    private javax.swing.JTextField fullname;
     private javax.swing.JPanel home_card;
     private javax.swing.JLabel icon2;
     private javax.swing.JTextField isbn;
@@ -1761,6 +1830,9 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -1781,23 +1853,19 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField mail;
     private javax.swing.JPanel main_panel;
     private javax.swing.JPanel manage;
     private javax.swing.JButton manage_books;
     private javax.swing.JLabel name1;
+    private javax.swing.JTextField np;
+    private javax.swing.JTextField phno;
     private javax.swing.JTextField price;
     private javax.swing.JButton profile;
     private javax.swing.JTextField publisher;
     private javax.swing.JTextField qty;
+    private javax.swing.JTextField re_np;
     private javax.swing.JRadioButton removeBook;
     private javax.swing.JTextField returnDate;
     private javax.swing.JButton return_book;
@@ -1810,5 +1878,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField term;
     private javax.swing.JTextField title;
     private javax.swing.JTextField totalfine;
+    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }
