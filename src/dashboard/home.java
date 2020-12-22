@@ -55,9 +55,8 @@ public class home extends javax.swing.JFrame {
     }
 
     public home() {
-        initComponents();
-        getDBConnection();
-        dashboardUpdate();
+        JOptionPane.showMessageDialog(this, "error");
+        this.dispose();
     }
     
     private void getDBConnection(){
@@ -127,24 +126,18 @@ public class home extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         Profile = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
         fullname = new javax.swing.JTextField();
         userName = new javax.swing.JTextField();
         authority = new javax.swing.JTextField();
         ID = new javax.swing.JTextField();
         mail = new javax.swing.JTextField();
         phno = new javax.swing.JTextField();
-        np = new javax.swing.JTextField();
-        re_np = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
         bckgrnd1 = new javax.swing.JLabel();
         manage = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -170,6 +163,7 @@ public class home extends javax.swing.JFrame {
         publisher = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
+        clr1 = new javax.swing.JButton();
         SearchBook = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         term = new javax.swing.JTextField();
@@ -557,10 +551,6 @@ public class home extends javax.swing.JFrame {
         jLabel50.setText("Profile:");
         Profile.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel51.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel51.setText("Re-enter Password");
-        Profile.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
-
         jLabel52.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel52.setText("Username");
         Profile.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
@@ -574,7 +564,7 @@ public class home extends javax.swing.JFrame {
         Profile.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel55.setText("University Roll No./Employee ID");
+        jLabel55.setText("Employee ID");
         Profile.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -585,18 +575,12 @@ public class home extends javax.swing.JFrame {
         jLabel57.setText("Phone No.");
         Profile.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
-        jLabel58.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel58.setText("Current Password");
-        Profile.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
-
-        jLabel59.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel59.setText("New Password");
-        Profile.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
-
+        fullname.setEditable(false);
         fullname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fullname.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Profile.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 220, -1));
 
+        userName.setEditable(false);
         userName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         userName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         userName.addActionListener(new java.awt.event.ActionListener() {
@@ -606,6 +590,7 @@ public class home extends javax.swing.JFrame {
         });
         Profile.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, -1));
 
+        authority.setEditable(false);
         authority.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         authority.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         authority.addActionListener(new java.awt.event.ActionListener() {
@@ -615,6 +600,7 @@ public class home extends javax.swing.JFrame {
         });
         Profile.add(authority, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
 
+        ID.setEditable(false);
         ID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ID.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         ID.addActionListener(new java.awt.event.ActionListener() {
@@ -624,10 +610,12 @@ public class home extends javax.swing.JFrame {
         });
         Profile.add(ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 220, -1));
 
+        mail.setEditable(false);
         mail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Profile.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 220, -1));
+        Profile.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 220, -1));
 
+        phno.setEditable(false);
         phno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         phno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         phno.addActionListener(new java.awt.event.ActionListener() {
@@ -635,37 +623,10 @@ public class home extends javax.swing.JFrame {
                 phnoActionPerformed(evt);
             }
         });
-        Profile.add(phno, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 220, -1));
-
-        np.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        np.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        np.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                npActionPerformed(evt);
-            }
-        });
-        Profile.add(np, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 220, -1));
-
-        re_np.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        re_np.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        re_np.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                re_npActionPerformed(evt);
-            }
-        });
-        Profile.add(re_np, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 220, -1));
-
-        jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
-            }
-        });
-        Profile.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 220, 20));
+        Profile.add(phno, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 220, -1));
 
         bckgrnd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/boy.png"))); // NOI18N
-        Profile.add(bckgrnd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 210, 240));
+        Profile.add(bckgrnd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 230, 240));
 
         main_panel.add(Profile, "card4");
 
@@ -686,7 +647,7 @@ public class home extends javax.swing.JFrame {
                 sbmtActionPerformed(evt);
             }
         });
-        manage.add(sbmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 110, 30));
+        manage.add(sbmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 110, 30));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setText("Quantity:");
@@ -766,7 +727,6 @@ public class home extends javax.swing.JFrame {
         BookID.setBackground(new java.awt.Color(255, 255, 255, 0));
         BookID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         BookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        BookID.setEnabled(false);
         BookID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BookIDActionPerformed(evt);
@@ -847,6 +807,20 @@ public class home extends javax.swing.JFrame {
         jLabel44.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel44.setText("Add / Remove Book");
         manage.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        clr1.setBackground(new java.awt.Color(255, 255, 255));
+        clr1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clr1.setText("Clear");
+        clr1.setActionCommand("Borrow");
+        clr1.setBorder(null);
+        clr1.setContentAreaFilled(false);
+        clr1.setOpaque(true);
+        clr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clr1ActionPerformed(evt);
+            }
+        });
+        manage.add(clr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 90, 30));
 
         main_panel.add(manage, "card5");
 
@@ -1347,6 +1321,11 @@ public class home extends javax.swing.JFrame {
             ResultSet rs = Query.executeQuery();
             if(rs.next()){
                 fullname.setText(rs.getString("Name"));
+                userName.setText(rs.getString("Authority"));
+                authority.setText(rs.getString("Authority"));
+                mail.setText(rs.getString("Email"));
+                ID.setText(rs.getString("ID"));
+                phno.setText(rs.getString("Phone_No"));
             }
             rs.close();
         } catch (SQLException ex) {
@@ -1497,7 +1476,38 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_clearActionPerformed
 
     private void sbmtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbmtActionPerformed
-        
+        try {
+            if(addBook.isSelected()){
+                String b = BookID.getText();
+                String a = authr.getText();
+                String t = title.getText();
+                String p = publisher.getText();
+                String e = edition.getText();
+                String i = isbn.getText();
+                String s = subject.getText();
+                String q = qty.getText();
+                String pric = price.getText();
+                Query = con.prepareStatement("insert into books values (?,?,?,?,?,?,?,?,?);");
+                Query.setInt(1, Integer.parseInt(b));
+                Query.setString(2, t);
+                Query.setString(3, a);
+                Query.setString(4, p);
+                Query.setString(5, e);
+                Query.setString(6, i);
+                Query.setString(7, s);
+                Query.setString(8, q);
+                Query.setInt(9, Integer.parseInt(pric));
+            }
+            else{
+                String b = BookID.getText();
+                Query = con.prepareStatement("delete from books where BookID = ?");
+                Query.setString(1, b);
+            }
+            int k =Query.executeUpdate();
+            JOptionPane.showMessageDialog(this, k);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }
     }//GEN-LAST:event_sbmtActionPerformed
 
     private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
@@ -1694,21 +1704,21 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phnoActionPerformed
 
-    private void npActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_npActionPerformed
-
-    private void re_npActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_re_npActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_re_npActionPerformed
-
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
-
     private void authorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_authorityActionPerformed
+
+    private void clr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clr1ActionPerformed
+        BookID.setText(" ");
+        authr.setText(" ");
+        title.setText(" ");
+        publisher.setText(" ");
+        edition.setText(" ");
+        isbn.setText(" ");
+        subject.setText(" ");
+        qty.setText(" ");
+        price.setText(" ");
+    }//GEN-LAST:event_clr1ActionPerformed
     
     
     /**
@@ -1773,6 +1783,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton c3;
     private javax.swing.JButton clear;
     private javax.swing.JButton clr;
+    private javax.swing.JButton clr1;
     private javax.swing.JButton done;
     private javax.swing.JTextField dueDate;
     private javax.swing.JTextField edition;
@@ -1835,15 +1846,12 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1853,19 +1861,16 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField mail;
     private javax.swing.JPanel main_panel;
     private javax.swing.JPanel manage;
     private javax.swing.JButton manage_books;
     private javax.swing.JLabel name1;
-    private javax.swing.JTextField np;
     private javax.swing.JTextField phno;
     private javax.swing.JTextField price;
     private javax.swing.JButton profile;
     private javax.swing.JTextField publisher;
     private javax.swing.JTextField qty;
-    private javax.swing.JTextField re_np;
     private javax.swing.JRadioButton removeBook;
     private javax.swing.JTextField returnDate;
     private javax.swing.JButton return_book;
