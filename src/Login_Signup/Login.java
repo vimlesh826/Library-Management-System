@@ -5,6 +5,7 @@
  */
 package Login_Signup;
 
+import dashboard.VKApiService;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
@@ -18,7 +19,7 @@ import java.util.Arrays;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import dashboard.VKApiService;
 /**
  *
  * @author vimle
@@ -172,22 +173,17 @@ public class Login extends javax.swing.JFrame {
     private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
         String user = username.getText();
         char[] pass = password.getPassword();
-        try{  
-            Class.forName("com.mysql.cj.jdbc.Driver");  
-            Connection con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/library_management","root","0000");
-            PreparedStatement log=con.prepareStatement("select username from users where username = ? && password = ?;");
-            log.setString(1, user);
-            log.setString(2, String.valueOf(pass));
-            ResultSet rs = log.executeQuery();
+        ResultSet rs = VKApiService.login(user, String.valueOf(pass));
+        try{
             if(rs.next()){
-                new dashboard.home(user).setVisible(true);
+                 new dashboard.home(user).setVisible(true);
                 dispose();
             }
             else
                 JOptionPane.showMessageDialog(this, "Login Failed","Alert",JOptionPane.ERROR_MESSAGE);
-            
-            }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}
+        }catch(Exception E){
+            JOptionPane.showMessageDialog(this, E,"Alert",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_submit_btnActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
