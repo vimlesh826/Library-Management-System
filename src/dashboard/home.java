@@ -63,7 +63,7 @@ public class home extends javax.swing.JFrame {
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/Library_Management","root","0000");
+            "jdbc:mysql://localhost:3306/Library_Management","root","1234");
             if(con.isValid(2))
                 status.setText("Online");
             else
@@ -218,10 +218,10 @@ public class home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -1184,14 +1184,11 @@ public class home extends javax.swing.JFrame {
         jLabel5.setText("Vimlesh Kumar");
         about_p.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
 
-        jLabel6.setText("Umesh Maharwaha");
+        jLabel6.setText("Umesh Marwaha");
         about_p.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
-        jLabel7.setText("Sakshi Bassi");
+        jLabel7.setText("Sajid Ahmad Khalloo");
         about_p.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
-
-        jLabel8.setText("Navreet Kaur");
-        about_p.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Beta version");
@@ -1214,6 +1211,17 @@ public class home extends javax.swing.JFrame {
         jLabel1.setRequestFocusEnabled(false);
         jLabel1.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 40));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(204, 0, 51));
+        jButton3.setText("Logout");
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 890, 40));
 
@@ -1719,6 +1727,11 @@ public class home extends javax.swing.JFrame {
         qty.setText(" ");
         price.setText(" ");
     }//GEN-LAST:event_clr1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+        new Login_Signup.Login().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     
     /**
@@ -1800,6 +1813,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1854,7 +1868,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
