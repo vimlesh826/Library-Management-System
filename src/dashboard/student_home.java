@@ -131,36 +131,11 @@ public class student_home extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         fullname = new javax.swing.JTextField();
         userName = new javax.swing.JTextField();
-        authority = new javax.swing.JTextField();
+        course = new javax.swing.JTextField();
         ID = new javax.swing.JTextField();
         mail = new javax.swing.JTextField();
         phno = new javax.swing.JTextField();
         bckgrnd1 = new javax.swing.JLabel();
-        manage = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        sbmt = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        removeBook = new javax.swing.JRadioButton();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        addBook = new javax.swing.JRadioButton();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        edition = new javax.swing.JTextField();
-        authr = new javax.swing.JTextField();
-        BookID = new javax.swing.JTextField();
-        title = new javax.swing.JTextField();
-        subject = new javax.swing.JTextField();
-        qty = new javax.swing.JTextField();
-        price = new javax.swing.JTextField();
-        isbn = new javax.swing.JTextField();
-        publisher = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        clr1 = new javax.swing.JButton();
         SearchBook = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         term = new javax.swing.JTextField();
@@ -169,40 +144,6 @@ public class student_home extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        ReturnBook = new javax.swing.JPanel();
-        c3 = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        totalfine = new javax.swing.JTextField();
-        dueDate = new javax.swing.JTextField();
-        borrowerID = new javax.swing.JTextField();
-        issuedBookID = new javax.swing.JTextField();
-        clr = new javax.swing.JButton();
-        rtrn = new javax.swing.JButton();
-        bckgrnd = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        IssueBook = new javax.swing.JPanel();
-        c1 = new javax.swing.JButton();
-        c2 = new javax.swing.JButton();
-        returnDate = new javax.swing.JTextField();
-        bookName = new javax.swing.JTextField();
-        issuerID = new javax.swing.JTextField();
-        issuerName = new javax.swing.JTextField();
-        issueDate = new javax.swing.JTextField();
-        bookID = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        clear = new javax.swing.JButton();
-        done = new javax.swing.JButton();
-        jLabel41 = new javax.swing.JLabel();
         IssuedBook = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -215,10 +156,10 @@ public class student_home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
@@ -470,11 +411,11 @@ public class student_home extends javax.swing.JFrame {
         Profile.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel54.setText("Authority");
+        jLabel54.setText("Course");
         Profile.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel55.setText("Employee ID");
+        jLabel55.setText("Student ID");
         Profile.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -500,15 +441,15 @@ public class student_home extends javax.swing.JFrame {
         });
         Profile.add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 220, -1));
 
-        authority.setEditable(false);
-        authority.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        authority.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        authority.addActionListener(new java.awt.event.ActionListener() {
+        course.setEditable(false);
+        course.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        course.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        course.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                authorityActionPerformed(evt);
+                courseActionPerformed(evt);
             }
         });
-        Profile.add(authority, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
+        Profile.add(course, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, -1));
 
         ID.setEditable(false);
         ID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -539,200 +480,6 @@ public class student_home extends javax.swing.JFrame {
         Profile.add(bckgrnd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 230, 240));
 
         main_panel.add(Profile, "card4");
-
-        manage.setBackground(new java.awt.Color(255, 255, 255));
-        manage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel18.setText("ISBN No.:");
-        manage.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, 20));
-
-        sbmt.setBackground(new java.awt.Color(255, 153, 0));
-        sbmt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        sbmt.setText("Submit");
-        sbmt.setContentAreaFilled(false);
-        sbmt.setOpaque(true);
-        sbmt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sbmtActionPerformed(evt);
-            }
-        });
-        manage.add(sbmt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 110, 30));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel19.setText("Quantity:");
-        manage.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, 20));
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel20.setText("Title:");
-        manage.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 53, 20));
-
-        removeBook.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(removeBook);
-        removeBook.setText("Remove Book");
-        removeBook.setContentAreaFilled(false);
-        removeBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeBookActionPerformed(evt);
-            }
-        });
-        manage.add(removeBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel21.setText("Edition");
-        manage.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 53, 20));
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel22.setText("Author");
-        manage.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 53, 20));
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel23.setText("Price:");
-        manage.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 53, 20));
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel24.setText("Book Id:");
-        manage.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 53, 20));
-
-        addBook.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(addBook);
-        addBook.setText("Add Book");
-        addBook.setContentAreaFilled(false);
-        addBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBookActionPerformed(evt);
-            }
-        });
-        manage.add(addBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel25.setText("Subject:");
-        manage.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, 20));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/backgnd.png"))); // NOI18N
-        manage.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 90, -1, 510));
-
-        edition.setBackground(new java.awt.Color(255, 255, 255, 0));
-        edition.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        edition.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        edition.setEnabled(false);
-        edition.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editionActionPerformed(evt);
-            }
-        });
-        manage.add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 205, 20));
-
-        authr.setBackground(new java.awt.Color(255, 255, 255, 0));
-        authr.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        authr.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        authr.setEnabled(false);
-        authr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                authrActionPerformed(evt);
-            }
-        });
-        manage.add(authr, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 205, 20));
-
-        BookID.setBackground(new java.awt.Color(255, 255, 255, 0));
-        BookID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        BookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        BookID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookIDActionPerformed(evt);
-            }
-        });
-        manage.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 205, 20));
-
-        title.setBackground(new java.awt.Color(255, 255, 255, 0));
-        title.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        title.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        title.setEnabled(false);
-        title.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titleActionPerformed(evt);
-            }
-        });
-        manage.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 205, 20));
-
-        subject.setBackground(new java.awt.Color(255, 255, 255, 0));
-        subject.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        subject.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        subject.setEnabled(false);
-        subject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subjectActionPerformed(evt);
-            }
-        });
-        manage.add(subject, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 205, 20));
-
-        qty.setBackground(new java.awt.Color(255, 255, 255, 0));
-        qty.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        qty.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        qty.setEnabled(false);
-        qty.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qtyActionPerformed(evt);
-            }
-        });
-        manage.add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 205, 20));
-
-        price.setBackground(new java.awt.Color(255, 255, 255, 0));
-        price.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        price.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        price.setEnabled(false);
-        price.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceActionPerformed(evt);
-            }
-        });
-        manage.add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 205, 20));
-
-        isbn.setBackground(new java.awt.Color(255, 255, 255, 0));
-        isbn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        isbn.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        isbn.setEnabled(false);
-        isbn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isbnActionPerformed(evt);
-            }
-        });
-        manage.add(isbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 205, 20));
-
-        publisher.setBackground(new java.awt.Color(255, 255, 255, 0));
-        publisher.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        publisher.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        publisher.setEnabled(false);
-        publisher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                publisherActionPerformed(evt);
-            }
-        });
-        manage.add(publisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 205, 20));
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel26.setText("Publisher:");
-        manage.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 53, 20));
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel44.setText("Add / Remove Book");
-        manage.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
-
-        clr1.setBackground(new java.awt.Color(255, 255, 255));
-        clr1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        clr1.setText("Clear");
-        clr1.setActionCommand("Borrow");
-        clr1.setBorder(null);
-        clr1.setContentAreaFilled(false);
-        clr1.setOpaque(true);
-        clr1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clr1ActionPerformed(evt);
-            }
-        });
-        manage.add(clr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 90, 30));
-
-        main_panel.add(manage, "card5");
 
         SearchBook.setBackground(new java.awt.Color(255, 255, 255));
         SearchBook.setMinimumSize(new java.awt.Dimension(890, 600));
@@ -800,221 +547,6 @@ public class student_home extends javax.swing.JFrame {
         SearchBook.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 830, 450));
 
         main_panel.add(SearchBook, "card4");
-
-        ReturnBook.setBackground(new java.awt.Color(255, 255, 255));
-        ReturnBook.setMinimumSize(new java.awt.Dimension(890, 600));
-        ReturnBook.setPreferredSize(new java.awt.Dimension(890, 600));
-        ReturnBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        c3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/check.png"))); // NOI18N
-        c3.setContentAreaFilled(false);
-        c3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c3ActionPerformed(evt);
-            }
-        });
-        ReturnBook.add(c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 40, 40));
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel34.setText(" Return Book ");
-        ReturnBook.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
-
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel35.setText("Book Id");
-        ReturnBook.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel37.setText("Borrower Id");
-        ReturnBook.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 100, -1));
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel38.setText("Due Date");
-        ReturnBook.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
-
-        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel39.setText("Fine");
-        ReturnBook.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
-
-        totalfine.setEditable(false);
-        totalfine.setBackground(new java.awt.Color(255,255,255,0));
-        totalfine.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        totalfine.setBorder(null);
-        ReturnBook.add(totalfine, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 202, 30));
-
-        dueDate.setEditable(false);
-        dueDate.setBackground(new java.awt.Color(255,255,255,0));
-        dueDate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        dueDate.setBorder(null);
-        ReturnBook.add(dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 202, 30));
-
-        borrowerID.setBackground(new java.awt.Color(255,255,255,0));
-        borrowerID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        borrowerID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        borrowerID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borrowerIDActionPerformed(evt);
-            }
-        });
-        ReturnBook.add(borrowerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 202, 30));
-
-        issuedBookID.setBackground(new java.awt.Color(255,255,255,0));
-        issuedBookID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        issuedBookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        issuedBookID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                issuedBookIDActionPerformed(evt);
-            }
-        });
-        ReturnBook.add(issuedBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 202, 30));
-
-        clr.setBackground(new java.awt.Color(255, 255, 255));
-        clr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        clr.setText("Clear");
-        clr.setActionCommand("Borrow");
-        clr.setBorder(null);
-        clr.setContentAreaFilled(false);
-        clr.setOpaque(true);
-        clr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clrActionPerformed(evt);
-            }
-        });
-        ReturnBook.add(clr, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 90, 40));
-
-        rtrn.setBackground(new java.awt.Color(255, 153, 0));
-        rtrn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rtrn.setText("Return");
-        rtrn.setActionCommand("Borrow");
-        rtrn.setBorder(null);
-        rtrn.setContentAreaFilled(false);
-        rtrn.setEnabled(false);
-        rtrn.setOpaque(true);
-        rtrn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rtrnActionPerformed(evt);
-            }
-        });
-        ReturnBook.add(rtrn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 40));
-
-        bckgrnd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/reading.png"))); // NOI18N
-        ReturnBook.add(bckgrnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 250, 260));
-        ReturnBook.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 20, 30));
-
-        main_panel.add(ReturnBook, "card2");
-
-        IssueBook.setBackground(new java.awt.Color(255, 255, 255));
-        IssueBook.setMinimumSize(new java.awt.Dimension(890, 600));
-        IssueBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        c1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/check.png"))); // NOI18N
-        c1.setContentAreaFilled(false);
-        c1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c1ActionPerformed(evt);
-            }
-        });
-        IssueBook.add(c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 40, 40));
-
-        c2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/check.png"))); // NOI18N
-        c2.setContentAreaFilled(false);
-        c2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c2ActionPerformed(evt);
-            }
-        });
-        IssueBook.add(c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 40, 40));
-
-        returnDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        returnDate.setBorder(null);
-        IssueBook.add(returnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 80, 30));
-
-        bookName.setEditable(false);
-        bookName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bookName.setBorder(null);
-        bookName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookNameActionPerformed(evt);
-            }
-        });
-        IssueBook.add(bookName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 350, 30));
-
-        issuerID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        issuerID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        IssueBook.add(issuerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 310, 30));
-
-        issuerName.setEditable(false);
-        issuerName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        issuerName.setBorder(null);
-        IssueBook.add(issuerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 350, 30));
-
-        issueDate.setEditable(false);
-        issueDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        issueDate.setBorder(null);
-        IssueBook.add(issueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 80, 30));
-
-        bookID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        bookID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookIDActionPerformed(evt);
-            }
-        });
-        IssueBook.add(bookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 310, 30));
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel28.setText("Return Date:");
-        IssueBook.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel27.setText("Issuer Name:");
-        IssueBook.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel29.setText("Book Name:");
-        IssueBook.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
-
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel30.setText("Issue Date:");
-        IssueBook.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel31.setText("Issuer ID:");
-        IssueBook.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel32.setText("Book ID:");
-        IssueBook.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-
-        jLabel42.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel42.setText(" Issue Book: ");
-        IssueBook.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 150, -1));
-
-        clear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        clear.setText("Clear");
-        clear.setContentAreaFilled(false);
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
-        IssueBook.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
-
-        done.setBackground(new java.awt.Color(255, 255, 255));
-        done.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        done.setText("Done");
-        done.setContentAreaFilled(false);
-        done.setEnabled(false);
-        done.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneActionPerformed(evt);
-            }
-        });
-        IssueBook.add(done, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/desk.png"))); // NOI18N
-        IssueBook.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 260, 260));
-
-        main_panel.add(IssueBook, "card4");
 
         IssuedBook.setBackground(new java.awt.Color(255, 255, 255));
         IssuedBook.setMinimumSize(new java.awt.Dimension(890, 600));
@@ -1091,11 +623,8 @@ public class student_home extends javax.swing.JFrame {
         jLabel6.setText("Umesh Maharwaha");
         about_p.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
-        jLabel7.setText("Sakshi Bassi");
+        jLabel7.setText("Sajid Khalloo");
         about_p.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
-
-        jLabel8.setText("Navreet Kaur");
-        about_p.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Beta version");
@@ -1118,6 +647,17 @@ public class student_home extends javax.swing.JFrame {
         jLabel1.setRequestFocusEnabled(false);
         jLabel1.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 40));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(204, 0, 51));
+        jButton3.setText("Logout");
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 890, 40));
 
@@ -1196,13 +736,14 @@ public class student_home extends javax.swing.JFrame {
         main_panel.repaint();
         main_panel.revalidate();
         try {
-            Query = con.prepareStatement("select * from employee, users where employee.ID = users.ID and username = ?;");
+            Query = con.prepareStatement("select * from students, users where students.ID = users.ID and username = ?;");
             Query.setString(1, name);
+            System.out.println(Query);
             ResultSet rs = Query.executeQuery();
             if(rs.next()){
                 fullname.setText(rs.getString("Name"));
-                userName.setText(rs.getString("Authority"));
-                authority.setText(rs.getString("Authority"));
+                userName.setText(rs.getString("username"));
+                course.setText(rs.getString("Course"));
                 mail.setText(rs.getString("Email"));
                 ID.setText(rs.getString("ID"));
                 phno.setText(rs.getString("Phone_No"));
@@ -1226,8 +767,10 @@ public class student_home extends javax.swing.JFrame {
         main_panel.repaint();
         main_panel.revalidate();
         try {
-            Query = con.prepareStatement("select * from IssuedBooks;");
+            Query = con.prepareStatement("select * from IssuedBooks where ID = ?;");
+            Query.setString(1, this.name);
             ResultSet rs = Query.executeQuery();
+            
             DefaultTableModel m = (DefaultTableModel) jTable1.getModel();
             int count = m.getRowCount()-1;
             while(count>=0){
@@ -1290,21 +833,11 @@ public class student_home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void bookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookIDActionPerformed
-
-    private void borrowerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrowerIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_borrowerIDActionPerformed
-
-    private void issuedBookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuedBookIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_issuedBookIDActionPerformed
-
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         try {
-            Query = con.prepareStatement("select * from IssuedBooks;");
+            Query = con.prepareStatement("select * from IssuedBooks where ID = ?;");
+            Query.setString(1, this.name);
+            System.out.println(Query);
             ResultSet rs = Query.executeQuery();
             DefaultTableModel m = (DefaultTableModel) jTable2.getModel();
             int count = m.getRowCount()-1;
@@ -1318,236 +851,6 @@ public class student_home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void bookNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookNameActionPerformed
-
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        bookName.setText(" ");
-        bookID.setText(" ");
-        bookName.setText(" ");
-        issuerID.setText(" ");
-        issuerName.setText(" ");
-        done.setEnabled(false);
-    }//GEN-LAST:event_clearActionPerformed
-
-    private void sbmtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbmtActionPerformed
-        try {
-            if(addBook.isSelected()){
-                String b = BookID.getText();
-                String a = authr.getText();
-                String t = title.getText();
-                String p = publisher.getText();
-                String e = edition.getText();
-                String i = isbn.getText();
-                String s = subject.getText();
-                String q = qty.getText();
-                String pric = price.getText();
-                Query = con.prepareStatement("insert into books values (?,?,?,?,?,?,?,?,?);");
-                Query.setInt(1, Integer.parseInt(b));
-                Query.setString(2, t);
-                Query.setString(3, a);
-                Query.setString(4, p);
-                Query.setString(5, e);
-                Query.setString(6, i);
-                Query.setString(7, s);
-                Query.setString(8, q);
-                Query.setInt(9, Integer.parseInt(pric));
-            }
-            else{
-                String b = BookID.getText();
-                Query = con.prepareStatement("delete from books where BookID = ?");
-                Query.setString(1, b);
-            }
-            int k =Query.executeUpdate();
-            JOptionPane.showMessageDialog(this, k);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }
-    }//GEN-LAST:event_sbmtActionPerformed
-
-    private void removeBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBookActionPerformed
-        bookID.setEnabled(true);
-        isbn.setEnabled(false);
-        subject.setEnabled(false);
-        qty.setEnabled(false);
-        price.setEnabled(false);
-        publisher.setEnabled(false);
-        title.setEnabled(false);
-        authr.setEnabled(false);
-        edition.setEnabled(false);
-    }//GEN-LAST:event_removeBookActionPerformed
-
-    private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
-        bookID.setEnabled(true);
-        isbn.setEnabled(true);
-        subject.setEnabled(true);
-        qty.setEnabled(true);
-        price.setEnabled(true);
-        publisher.setEnabled(true);
-        title.setEnabled(true);
-        authr.setEnabled(true);
-        edition.setEnabled(true);
-    }//GEN-LAST:event_addBookActionPerformed
-
-    private void editionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editionActionPerformed
-
-    private void authrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_authrActionPerformed
-
-    private void BookIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BookIDActionPerformed
-
-    private void titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_titleActionPerformed
-
-    private void subjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_subjectActionPerformed
-
-    private void qtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_qtyActionPerformed
-
-    private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_priceActionPerformed
-
-    private void isbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_isbnActionPerformed
-
-    private void publisherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publisherActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_publisherActionPerformed
-
-    private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
-        bkid = bookID.getText();
-        try {
-            Query = con.prepareStatement("select title from books where bookID = ?;");
-            Query.setString(1, bkid);
-            ResultSet rs = Query.executeQuery();
-            if(rs.next())
-                bookName.setText(rs.getString("title"));
-            else
-                JOptionPane.showMessageDialog(this,"No Record Found for given BOOK_ID");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }              
-    }//GEN-LAST:event_c1ActionPerformed
-
-    private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
-        iss_id = issuerID.getText();
-        try {
-            Query = con.prepareStatement("select name from students where ID = ?;");
-            Query.setString(1, iss_id);
-            ResultSet rs = Query.executeQuery();
-            if(rs.next()){
-                issuerName.setText(rs.getString("name"));
-                done.setEnabled(true);
-            }
-            else
-                JOptionPane.showMessageDialog(this,"No Record Found for given ISSUER_ID");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }
-    }//GEN-LAST:event_c2ActionPerformed
-
-    private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
-        /**
-        try {
-            con.setAutoCommit(false);
-            Statement finalQuery = con.createStatement();
-            finalQuery.addBatch("Insert into issuedBooks values( "+bkid+", "+iss_id+" ,"+java.sql.Date.valueOf(iss_Date)+" ,"+java.sql.Date.valueOf(ret_Date)+" );");
-            finalQuery.addBatch("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
-            finalQuery.executeBatch();
-            con.commit();
-            con.setAutoCommit(true);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }*/
-        try {
-            Query = con.prepareStatement("Insert into issuedbooks values( ?, ? ,? ,? );");
-            PreparedStatement Query1 = con.prepareStatement("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
-            Query.setString(1, bkid);
-            Query.setString(2, iss_id);
-            Query.setDate(3, java.sql.Date.valueOf(iss_Date));
-            Query.setDate(4, java.sql.Date.valueOf(ret_Date));
-            Query.executeUpdate();
-            Query1.executeUpdate();
-            Query1.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }
-    }//GEN-LAST:event_doneActionPerformed
-
-    private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
-        rtbkid = issuedBookID.getText();
-        rtiss_id = borrowerID.getText();
-        long fine;
-        try {
-            Query = con.prepareStatement("select * from IssuedBooks where ID = ? and BookID = ?;");
-            Query.setString(1, rtiss_id);
-            Query.setString(2, rtbkid);
-            ResultSet rs = Query.executeQuery();
-            if(rs.next()){
-                fine = abs(ChronoUnit.DAYS.between(LocalDate.now(), rs.getDate("returnDate").toLocalDate())*2);
-                issuerName.setText(rs.getString("returnDate"));
-                dueDate.setText(rs.getDate("returnDate").toString());
-                if(LocalDate.now().compareTo(rs.getDate("returnDate").toLocalDate())>0){
-                    totalfine.setText(String.valueOf(fine));
-                }
-                else{
-                    totalfine.setText("null");
-                }
-                rtrn.setEnabled(true);
-            }
-            else
-                JOptionPane.showMessageDialog(this,"No Record Found.");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }
-    }//GEN-LAST:event_c3ActionPerformed
-
-    private void rtrnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rtrnActionPerformed
-        try {
-            con.setAutoCommit(false);
-            Statement finalQuery = con.createStatement();
-            finalQuery.addBatch("delete from issuedbooks where BookID = "+rtbkid+" AND ID = "+rtiss_id+" ;");
-            finalQuery.addBatch("update books set quantity = quantity+1 where BookID = "+bkid+" ;");
-            finalQuery.executeBatch();
-            con.commit();
-            con.setAutoCommit(true);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }
-        /**try {
-            Query = con.prepareStatement("Insert into issuedbooks values( ?, ? ,? ,? );");
-            PreparedStatement Query1 = con.prepareStatement("update books set quantity = quantity-1 where BookID = "+bkid+" ;");
-            Query.setString(1, bkid);
-            Query.setString(2, iss_id);
-            Query.setDate(3, java.sql.Date.valueOf(iss_Date));
-            Query.setDate(4, java.sql.Date.valueOf(ret_Date));
-            Query.executeUpdate();
-            Query1.executeUpdate();
-            Query1.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,ex);
-        }*/
-    }//GEN-LAST:event_rtrnActionPerformed
-
-    private void clrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clrActionPerformed
-        issuedBookID.setText(" ");
-        totalfine.setText(" ");
-        dueDate.setText(" ");
-        borrowerID.setText(" ");
-    }//GEN-LAST:event_clrActionPerformed
-
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameActionPerformed
@@ -1560,21 +863,14 @@ public class student_home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phnoActionPerformed
 
-    private void authorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_authorityActionPerformed
+    private void courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_authorityActionPerformed
+    }//GEN-LAST:event_courseActionPerformed
 
-    private void clr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clr1ActionPerformed
-        BookID.setText(" ");
-        authr.setText(" ");
-        title.setText(" ");
-        publisher.setText(" ");
-        edition.setText(" ");
-        isbn.setText(" ");
-        subject.setText(" ");
-        qty.setText(" ");
-        price.setText(" ");
-    }//GEN-LAST:event_clr1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+         new Login_Signup.Login().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     
     /**
@@ -1616,47 +912,25 @@ public class student_home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BookID;
     javax.swing.JButton Home;
     private javax.swing.JTextField ID;
-    private javax.swing.JPanel IssueBook;
     private javax.swing.JPanel IssuedBook;
     private javax.swing.JPanel Pofile_Panel;
     private javax.swing.JPanel Profile;
-    private javax.swing.JPanel ReturnBook;
     private javax.swing.JPanel SearchBook;
     private javax.swing.JButton about;
     private javax.swing.JPanel about_p;
-    private javax.swing.JRadioButton addBook;
-    private javax.swing.JTextField authority;
-    private javax.swing.JTextField authr;
-    private javax.swing.JLabel bckgrnd;
     private javax.swing.JLabel bckgrnd1;
-    private javax.swing.JTextField bookID;
-    private javax.swing.JTextField bookName;
-    private javax.swing.JTextField borrowerID;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton c1;
-    private javax.swing.JButton c2;
-    private javax.swing.JButton c3;
-    private javax.swing.JButton clear;
-    private javax.swing.JButton clr;
-    private javax.swing.JButton clr1;
-    private javax.swing.JButton done;
-    private javax.swing.JTextField dueDate;
-    private javax.swing.JTextField edition;
+    private javax.swing.JTextField course;
     private javax.swing.JTextField fullname;
     private javax.swing.JPanel home_card;
     private javax.swing.JLabel icon2;
-    private javax.swing.JTextField isbn;
-    private javax.swing.JTextField issueDate;
-    private javax.swing.JTextField issuedBookID;
     private javax.swing.JButton issued_book;
-    private javax.swing.JTextField issuerID;
-    private javax.swing.JTextField issuerName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1666,37 +940,12 @@ public class student_home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -1711,7 +960,6 @@ public class student_home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1720,24 +968,13 @@ public class student_home extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField mail;
     private javax.swing.JPanel main_panel;
-    private javax.swing.JPanel manage;
     private javax.swing.JLabel name1;
     private javax.swing.JTextField phno;
-    private javax.swing.JTextField price;
     private javax.swing.JButton profile;
-    private javax.swing.JTextField publisher;
-    private javax.swing.JTextField qty;
-    private javax.swing.JRadioButton removeBook;
-    private javax.swing.JTextField returnDate;
-    private javax.swing.JButton rtrn;
-    private javax.swing.JButton sbmt;
     private javax.swing.JButton search_book;
     private javax.swing.JPanel side_menu;
     private javax.swing.JLabel status;
-    private javax.swing.JTextField subject;
     private javax.swing.JTextField term;
-    private javax.swing.JTextField title;
-    private javax.swing.JTextField totalfine;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }

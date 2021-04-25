@@ -25,7 +25,7 @@ import dashboard.VKApiService;
  * @author vimle
  */
 public class Login extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form Login
      */
@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         L_Panel = new javax.swing.JPanel();
         L_background = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
@@ -88,12 +89,11 @@ public class Login extends javax.swing.JFrame {
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setText("Login");
-        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 140, 50));
+        Login.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 140, 50));
 
         username.setBackground(new java.awt.Color(255,255,255,0));
         username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         username.setBorder(null);
-        username.setOpaque(false);
         Login.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 240, 40));
 
         submit_btn.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,7 +129,6 @@ public class Login extends javax.swing.JFrame {
         password.setBackground(new java.awt.Color(255,255,255,0));
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         password.setBorder(null);
-        password.setOpaque(false);
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -176,8 +175,15 @@ public class Login extends javax.swing.JFrame {
         ResultSet rs = VKApiService.login(user, String.valueOf(pass));
         try{
             if(rs.next()){
+                int i = rs.getInt("access");
+                if(i == 1){
                  new dashboard.home(user).setVisible(true);
-                dispose();
+                this.dispose();
+                } else {
+                    new dashboard.student_home(user).setVisible(true);
+                    this.dispose();
+                }
+          
             }
             else
                 JOptionPane.showMessageDialog(this, "Login Failed","Alert",JOptionPane.ERROR_MESSAGE);
@@ -230,6 +236,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel L_Panel;
     private javax.swing.JLabel L_background;
     private javax.swing.JPanel Login;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel head;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator p_sep;

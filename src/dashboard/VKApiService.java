@@ -22,7 +22,7 @@ public class VKApiService {
             Class.forName("com.mysql.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/library_management","root","0000");
-            PreparedStatement log=con.prepareStatement("select username from users where username = ? && password = ?;");
+            PreparedStatement log=con.prepareStatement("select access from users where username = ? && password = ?;");
             log.setString(1, username);
             log.setString(2, password);
             ResultSet rs = log.executeQuery();

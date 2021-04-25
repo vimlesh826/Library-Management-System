@@ -19,7 +19,8 @@ import javax.swing.JOptionPane;
  * @author vimle
  */
 public class Signup extends javax.swing.JFrame {
-
+    
+    int user = 2 ;
     /**
      * Creates new form Signup
      */
@@ -28,7 +29,6 @@ public class Signup extends javax.swing.JFrame {
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,9 +38,12 @@ public class Signup extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         L_Panel = new javax.swing.JPanel();
         L_background = new javax.swing.JLabel();
         R_Panel = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         head = new javax.swing.JLabel();
@@ -70,6 +73,24 @@ public class Signup extends javax.swing.JFrame {
         R_Panel.setBackground(new java.awt.Color(255, 255, 255));
         R_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Student");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        R_Panel.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Staff");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        R_Panel.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+
         jLabel2.setForeground(java.awt.Color.red);
         jLabel2.setText("* password not equal");
         R_Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 240, -1));
@@ -81,7 +102,7 @@ public class Signup extends javax.swing.JFrame {
 
         head.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         head.setText("Sign Up");
-        R_Panel.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 140, 50));
+        R_Panel.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 140, 50));
 
         Submit.setBackground(new java.awt.Color(255, 255, 255));
         Submit.setText("Sign Up");
@@ -93,7 +114,7 @@ public class Signup extends javax.swing.JFrame {
                 SubmitActionPerformed(evt);
             }
         });
-        R_Panel.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 110, 30));
+        R_Panel.add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 110, 30));
 
         password_label.setText("Re-enter Password");
         R_Panel.add(password_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 140, 30));
@@ -146,7 +167,7 @@ public class Signup extends javax.swing.JFrame {
         R_Panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 30, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Login_Signup/Backgnd.jpg"))); // NOI18N
-        R_Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
+        R_Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 350, 500));
 
         getContentPane().add(R_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 350, 500));
 
@@ -155,31 +176,34 @@ public class Signup extends javax.swing.JFrame {
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         String user = username.getText();
-        String p1,p2;
-        p1 = Arrays.toString(password.getPassword());
-        p2 = Arrays.toString(password1.getPassword());
+        char[] p1,p2;
+        p1 = password.getPassword();
+        p2 = password1.getPassword();
         if(Arrays.equals( password1.getPassword(),password.getPassword())){
             try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/project","root","0000");
-            PreparedStatement check=con.prepareStatement("select username from login where username = ?");
+            "jdbc:mysql://localhost:3306/library_management","root","0000");
+            PreparedStatement check=con.prepareStatement("select username from users where username = ?");
             check.setString(1, user);
-            PreparedStatement reg=con.prepareStatement("insert into login values(?,?)");
-            reg.setString(1, user);
-            reg.setString(2, p2);
+            PreparedStatement reg=con.prepareStatement("insert into users values(?,?,?,?)");
+            reg.setString(1,user);
+            reg.setInt(2, this.user);
+            reg.setString(3, user);
+            reg.setString(4, String.valueOf(p2));
+            System.out.println(reg);
             ResultSet rs = check.executeQuery();
             if(rs.next())
                 jLabel1.setVisible(true);
             else{
-                rs = reg.executeQuery();
-                if(rs.next()){
+                int r = reg.executeUpdate(); 
+                if(r>0){
                     JOptionPane.showMessageDialog(this, "Registered Succefully");
                     new Login().setVisible(true);
                     dispose();
                 }
             }
-            }catch(ClassNotFoundException | SQLException e){ System.out.println(e);}  
+            }catch(ClassNotFoundException | SQLException e){JOptionPane.showMessageDialog(this, e,"Alert",JOptionPane.ERROR_MESSAGE);}  
         }
         else{
             jLabel2.setVisible(false);
@@ -202,6 +226,14 @@ public class Signup extends javax.swing.JFrame {
         new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        this.user = 2;
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        this.user = 1;
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,11 +269,14 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel L_background;
     private javax.swing.JPanel R_Panel;
     private javax.swing.JButton Submit;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel head;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JPasswordField password;
     private javax.swing.JPasswordField password1;
     private javax.swing.JLabel password_label;
