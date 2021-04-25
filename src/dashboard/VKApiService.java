@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class VKApiService {
     public static ResultSet login(String username, String password){
         try{  
-            Class.forName("com.mysql.jdbc.Driver");  
+            Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con=DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/library_management","root","0000");
             PreparedStatement log=con.prepareStatement("select access from users where username = ? && password = ?;");
